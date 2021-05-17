@@ -1,3 +1,11 @@
+html {
+  font-family: 'Bitter', serif;
+}
+
 body {
   background-color: blueviolet;
+}
+
+.hidden {
+  display: none;
 }

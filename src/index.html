@@ -3,8 +3,45 @@
   <head>
     <meta charset="UTF-8">
     <title>Whats Cookin</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,100;0,600;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
   </head>
   <body>
-    <h1>Whats Cookin</h1>
+    <header>
+      <nav>
+        <h1>Welcome Placeholder</h1>
+        <button class="navigation-button home-button hidden">home</button>
+        <button class="navigation-button week-menu-button">weekly menu</button>
+        <button class="navigation-button favorite-button">favorite recipes</button>
+      </nav>
+    </header>
+    <main>
+        <input class="search-bar" type="text" name="searchBar" id="searchBar" placeholder="Search by ingredient, meal, or recipe..."/>
+        <section class="search-results">
+          <!-- search results -->
+        </section>
+        <section class="recipe-modal">
+          <!-- Recipe name
+          Estimated cost
+          Ingredients
+          Directions
+          Tags?
+          Image -->
+        </section>
+        <section class="recipes-to-cook-section">
+          <!-- Dynamically change h1 to read "Weekly Menu"
+          show the Weekly Menu Array -->
+        </section>
+        <section class="favorites-section">
+          <!-- Dynamically change h1 to read "Favorites Section"
+          show the Favorites Array -->
+        </section>
+    </main>
   </body>
+  <script src="RecipeRepository.js"></script>
+  <script src="Recipe.js"></script>
+  <script src="Ingredient.js"></script>
+  <script src="User.js"></script>
+  <script src="scripts.js"></script>
 </html>
