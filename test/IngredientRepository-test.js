@@ -22,4 +22,7 @@ describe('Ingredient Repository', () => {
     expect(ingredientRepo).to.be.an.instanceof(IngredientRepository);
   });
 
+  it('Should contain instances of Ingredient', () => {
+    expect(ingredientRepo.ingredients[0]).to.be.an.instanceof(Ingredient);
+  });
 })
