@@ -19,7 +19,7 @@ describe('Recipe', () => {
         ingredient2 = {"id": 18372,"name": "bicarbonate of soda", "estimatedCostInCents": 582};
         ingredients = [ingredient1, ingredient2];
         instruction1 = {"instruction": "Preheat oven to 170 – 200°F", "number": 1};
-        instruction2 = {"instruction": "Mix warm water with brown rice syrup, molasses", "number": 2};
+        instruction2 = {"instruction": "Mix with warm water", "number": 2};
         instructions = [instruction1, instruction2];
         name = "Whole Grain Bread";
         tags = ["bread"];
@@ -64,6 +64,16 @@ describe('Recipe', () => {
         expect(recipe.tags).to.deep.equal(["bread"])
         expect(recipe.tags).to.be.a('array')
     });
+     
+    it('Should return ingredient names', () => {
+        expect(getIngredients()).to.deep.equal(["wheat flour", "bicarbonate of soda"])
+    })
 
-    
+    it('Should return the instructions', () => {
+        expect(getInstructions()).to.deep.equal(["Preheat oven to 170 – 200°F", "Mix with warm water"])
+    })
+
+    it('Should return the total cost of ingredients', () => {
+        expect(getCost()).to.equal(866)
+    })
 });
