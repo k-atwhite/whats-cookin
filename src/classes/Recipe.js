@@ -9,21 +9,31 @@ class Recipe {
     }
 
     getIngredients() {
-        
+
+    }
+
+    getInstructions() {
+      return this.instructions.map(instruction => instruction.instruction);
+    }
+
+    getCost(ingredientData) {
+      // Input: ingredient.estimatedCostInCents * recipe.quantity.amount
+      // Output: number that is correct
+      console.log(this.ingredients);
     }
 }
 
 export default Recipe
 
-    getIngredients()
+    // getIngredients()
 // Determine the names of ingredients needed
 // map ingredients array; return ingredient names? ingredient.name
 
-    getInstructions()
+    // getInstructions()
 // Return its directions / instructions
 // return array; recipe.instructions
 
-   getCost()
+   // getCost()
 // Get the cost of its ingredients
 // reduce ingredients array
 // add each ingredient.estimatedCostInCents to accumulator
