@@ -1,3 +1,5 @@
+import { ingredientsData } from "../data/ingredients";
+
 class Recipe {
     constructor(id, imageUrl, ingredients, instructions, name, tags) {
         this.id = id;
@@ -6,25 +8,33 @@ class Recipe {
         this.instructions =  instructions;
         this.name = name;
         this.tags = tags;
+        this.ingredientCost = 0;
+    }
+
+    getInstructions() {
+        return this.instructions.map(instruction => instruction.instruction);
     }
 
     getIngredients() {
-        
+        let ingredientNames = []
+        this.ingredients.map(ingredient) => {
+            let idMatch = ingredient.id;
+            ingredientsData.forEach((ingredientDataElement) => {
+                if (idMatch === ingredientDataElement.id) {
+                    ingredientNames.push(ingredientDataElement.name);
+                }
+            })
+        }
+    }
+    getCost() {
+        this.ingredients.map(ingredient) => {
+            let idMatch = ingredient.id;
+            ingredientsData.forEach((ingredientDataElement) => {
+                if (idMatch === ingredientDataElement.id) {
+                    this.ingredientCost += ingredientDataElement.estimatedCostInCents * ingredient.quantity.amount
+                }
+            })
+        }
     }
 }
-
 export default Recipe
-
-    getIngredients()
-// Determine the names of ingredients needed
-// map ingredients array; return ingredient names? ingredient.name
-
-    getInstructions()
-// Return its directions / instructions
-// return array; recipe.instructions
-
-   getCost()
-// Get the cost of its ingredients
-// reduce ingredients array
-// add each ingredient.estimatedCostInCents to accumulator
-// return accumulator

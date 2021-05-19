@@ -4,6 +4,7 @@ class Ingredient {
     this.name = name;
     this.estimatedCostInCents = cost;
   }
+
 }
 
 export default Ingredient;
