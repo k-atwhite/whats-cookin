@@ -22,20 +22,19 @@ class Recipe {
 
     }
 
-    
+    getIngredientNames() {
+      return this.ingredients.map(ingredient => ingredient.name)
+    }
 
     getInstructions() {
       return this.instructions.map(instruction => instruction.instruction);
     }
-    // getCost() {
-    //     this.ingredients.map(ingredient) => {
-    //         let idMatch = ingredient.id;
-    //         ingredientsData.forEach((ingredientDataElement) => {
-    //             if (idMatch === ingredientDataElement.id) {
-    //                 this.ingredientCost += ingredientDataElement.estimatedCostInCents * ingredient.quantity.amount
-    //             }
-    //         })
-    //     }
-    // }
+
+    getCost() {
+      return this.ingredients.reduce((acc, ingredient) => {
+        acc += ingredient.estimatedCostInCents * ingredient.quantity.amount
+        return acc
+      }, 0)
+    }
 }
 export default Recipe
