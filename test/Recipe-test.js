@@ -20,12 +20,12 @@ describe('Recipe', () => {
       'ingredients': [{
         "id": 20081,
         "quantity": {
-          "amount": 1.5,
+          "amount": 2,
           "unit": "c"
         }}, {
           "id": 18372,
           "quantity": {
-            "amount": 0.5,
+            "amount": 1,
             "unit": "tsp"
           }}],
         'instructions': [{"instruction": "Preheat oven to 170 – 200°F", "number": 1},
@@ -59,12 +59,12 @@ describe('Recipe', () => {
     expect(recipe.ingredients).to.deep.equal([{
       "id": 20081,
       "quantity": {
-        "amount": 1.5,
+        "amount": 2,
         "unit": "c"
       }}, {
         "id": 18372,
         "quantity": {
-          "amount": 0.5,
+          "amount": 1,
           "unit": "tsp"
         }}])
     expect(recipe.ingredients).to.be.a('array')
@@ -96,7 +96,7 @@ describe('Recipe', () => {
       "id": 20081,
       "name": "wheat flour",
       "quantity": {
-        "amount": 1.5,
+        "amount": 2,
         "unit": "c"
       }},
       {
@@ -104,21 +104,24 @@ describe('Recipe', () => {
         "id": 18372,
         "name": "bicarbonate of soda",
         "quantity": {
-          "amount": 0.5,
+          "amount": 1,
           "unit": "tsp"
         }}
     ])
   });
 
   it('Should return ingredient names', () => {
+    recipe.compileIngredients();
     expect(recipe.getIngredientNames()).to.deep.equal(["wheat flour", "bicarbonate of soda"])
   });
 
-  it.skip('Should return the instructions', () => {
+  it('Should return the instructions', () => {
+    recipe.compileIngredients();
     expect(recipe.getInstructions()).to.deep.equal(["Preheat oven to 170 – 200°F", "Mix with warm water"])
   });
 
-  it.skip('Should return the total cost of ingredients', () => {
-    expect(recipegetCost()).to.equal(866)
+  it('Should return the total cost of ingredients', () => {
+    recipe.compileIngredients();
+    expect(recipe.getCost()).to.equal(866)
   });
 });
