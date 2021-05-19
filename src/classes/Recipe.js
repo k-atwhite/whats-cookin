@@ -1,40 +1,51 @@
+import { ingredientsData } from "../data/ingredients";
+
 class Recipe {
-    constructor(id, imageUrl, ingredients, instructions, name, tags) {
-        this.id = id;
-        this.imageUrl = imageUrl;
-        this.ingredients = ingredients;
-        this.instructions =  instructions;
-        this.name = name;
-        this.tags = tags;
-    }
-
-    getIngredients() {
-
+    constructor(recipe) {
+        this.id = recipe.id;
+        this.imageUrl = recipe.image;
+        this.ingredients = recipe.ingredients;
+        this.instructions =  recipe.instructions;
+        this.name = recipe.name;
+        this.tags = recipe.tags;
+        this.ingredientCost = 0;
     }
 
     getInstructions() {
-      return this.instructions.map(instruction => instruction.instruction);
+        return this.instructions.map(instruction => instruction.instruction);
     }
 
-    getCost(ingredientData) {
-      // Input: ingredient.estimatedCostInCents * recipe.quantity.amount
-      // Output: number that is correct
-      console.log(this.ingredients);
+// trying the other way
+    getIngredients() {
+        this.recipeData.ingredients.forEach()
+        const ingredients = ingredientdsData.map(ingredient => new Ingredient(item))
+    }
+
+    getIngredients() {
+        let ingredientNames = []
+        this.ingredients.map(ingredient) => {
+            let idMatch = ingredient.id;
+            ingredientsData.forEach((ingredientDataElement) => {
+                if (idMatch === ingredientDataElement.id) {
+                    ingredientNames.push(ingredientDataElement.name);
+                }
+            })
+        }
+    }
+
+    getIngredients() {
+        new
+    }
+
+    getCost() {
+        this.ingredients.map(ingredient) => {
+            let idMatch = ingredient.id;
+            ingredientsData.forEach((ingredientDataElement) => {
+                if (idMatch === ingredientDataElement.id) {
+                    this.ingredientCost += ingredientDataElement.estimatedCostInCents * ingredient.quantity.amount
+                }
+            })
+        }
     }
 }
-
 export default Recipe
-
-    // getIngredients()
-// Determine the names of ingredients needed
-// map ingredients array; return ingredient names? ingredient.name
-
-    // getInstructions()
-// Return its directions / instructions
-// return array; recipe.instructions
-
-   // getCost()
-// Get the cost of its ingredients
-// reduce ingredients array
-// add each ingredient.estimatedCostInCents to accumulator
-// return accumulator
