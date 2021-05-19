@@ -1,13 +1,13 @@
 import { ingredientsData } from "../data/ingredients";
 
 class Recipe {
-    constructor(id, imageUrl, ingredients, instructions, name, tags) {
-        this.id = id;
-        this.imageUrl = imageUrl;
-        this.ingredients = ingredients;
-        this.instructions =  instructions;
-        this.name = name;
-        this.tags = tags;
+    constructor(recipe) {
+        this.id = recipe.id;
+        this.imageUrl = recipe.image;
+        this.ingredients = recipe.ingredients;
+        this.instructions =  recipe.instructions;
+        this.name = recipe.name;
+        this.tags = recipe.tags;
         this.ingredientCost = 0;
     }
 
@@ -26,6 +26,11 @@ class Recipe {
             })
         }
     }
+
+    getIngredients() {
+        new 
+    }
+
     getCost() {
         this.ingredients.map(ingredient) => {
             let idMatch = ingredient.id;
