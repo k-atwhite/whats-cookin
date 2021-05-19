@@ -12,14 +12,12 @@ class Recipe {
     }
 
     compileIngredients() {
-
       const matchedIngredients = this.ingredients.map(ingredient => {
         const foundIngredient = ingredientsData.find(dataIngredient => dataIngredient.id === ingredient.id)
         const fullIngredient = Object.assign(foundIngredient, ingredient)
         return fullIngredient
       })
       this.ingredients = matchedIngredients
-
     }
 
     getIngredientNames() {
