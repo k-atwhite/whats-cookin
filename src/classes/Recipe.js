@@ -15,6 +15,12 @@ class Recipe {
         return this.instructions.map(instruction => instruction.instruction);
     }
 
+// trying the other way
+    getIngredients() {
+        this.recipeData.ingredients.forEach()
+        const ingredients = ingredientdsData.map(ingredient => new Ingredient(item))
+    }
+
     getIngredients() {
         let ingredientNames = []
         this.ingredients.map(ingredient) => {
