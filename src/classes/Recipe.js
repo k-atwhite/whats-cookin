@@ -3,12 +3,11 @@ import { ingredientsData } from "../data/ingredients";
 class Recipe {
     constructor(recipe) {
         this.id = recipe.id;
-        this.imageUrl = recipe.image;
+        this.image = recipe.image;
         this.ingredients = recipe.ingredients;
         this.instructions = recipe.instructions;
         this.name = recipe.name;
         this.tags = recipe.tags;
-        this.ingredientCost = 0;
     }
 
     compileIngredients() {
