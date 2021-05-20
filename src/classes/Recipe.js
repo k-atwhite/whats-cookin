@@ -17,6 +17,7 @@ class Recipe {
         return fullIngredient
       })
       this.ingredients = matchedIngredients
+
     }
 
     getIngredientNames() {

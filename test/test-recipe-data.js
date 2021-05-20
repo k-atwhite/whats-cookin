@@ -1,4 +1,4 @@
-const recipeData = [{
+export const recipeTestData = [{
     'id': 595736,
     'image': 'potato.org',
     'ingredients': [{
@@ -32,7 +32,7 @@ const recipeData = [{
     'instructions': [{"instruction": "Open package", "number": 1},
         {"instruction": "combine", "number": 2}],
     'name': 'Crabs on Crackers',
-    'tags': ["Hors d\'oeuvre", "dinner"]
+    'tags': ["Hors d\'oeuvre", "dinner", "crab"]
 }]
 
-export default recipeData;
+export default recipeTestData;
