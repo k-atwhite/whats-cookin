@@ -35,8 +35,22 @@ it('Should be an instance of RecipeRepository', () => {
     expect(recipeRepository).to.be.an.instanceOf(RecipeRepository);
 });
 
-it('', () => {
+it('Should pass recipeData as a parameter', () => {
     expect().to.equal();
 });
 
+it('Recipe data should be an array of objects', () => {
+    expect(recipeData).to.equal();
+});
 
+it('Should contain instances of Recipe', () => {
+    expect().to.equal();
+});
+
+it('Should compile ingredients before filtering', () => {
+    expect().to.equal();
+});
+
+it('Should be able to filter by name, ingredients, and tags', () => {
+    expect().to.equal();
+});
