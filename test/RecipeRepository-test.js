@@ -56,8 +56,13 @@ describe('Recipe Repository', () => {
         {"instruction": "combine", "number": 2}],
     'name': 'Crabs on Crackers',
     'tags': ["Hors d\'oeuvre", "dinner"]
-}]);
-  });
+  }]);
+});
 
+// Keep getting error "TypeError: Cannot convert undefined or null to object"
+ it('Should filter recipe\'s ingredients, names, and tags', () => {
+   const result = recipeRepository.filterTags('crab')
+    expect(result).to.deep.equal("?");
+  });
 
 });
