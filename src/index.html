@@ -9,8 +9,8 @@
   </head>
   <body>
     <header>
+      <h1>Welcome Placeholder</h1>
       <nav>
-        <h1>Welcome Placeholder</h1>
         <button class="navigation-button home-button hidden">home</button>
         <button class="navigation-button week-menu-button">weekly menu</button>
         <button class="navigation-button favorite-button">favorite recipes</button>
@@ -18,26 +18,33 @@
     </header>
     <main>
         <input class="search-bar" type="text" name="searchBar" id="searchBar" placeholder="Search by ingredient, meal, or recipe..."/>
-        <section class="search-results">
+        <section class="search-results container">
+          <section class="test"></section>
+          <section class="test"></section>
+          <section class="test"></section>
           <!-- search results -->
         </section>
-        <section class="recipe-modal">
-          <!-- Recipe name
-          Estimated cost
-          Ingredients
-          Directions
-          Tags?
-          Image -->
-        </section>
-        <section class="recipes-to-cook-section">
+        <section class="recipes-to-cook-section container">
           <!-- Dynamically change h1 to read "Weekly Menu"
           show the Weekly Menu Array -->
         </section>
-        <section class="favorites-section">
+        <section class="favorites-section container">
           <!-- Dynamically change h1 to read "Favorites Section"
           show the Favorites Array -->
         </section>
     </main>
+    <section class="recipe-modal hidden">
+      <section class="modal-content">
+        <span class="close-modal">&times;</span>
+        <p>Some placeholder text</p>
+      </section>
+      <!-- Recipe name
+      Estimated cost
+      Ingredients
+      Directions
+      Tags?
+      Image -->
+    </section>
   </body>
   <script src="RecipeRepository.js"></script>
   <script src="Recipe.js"></script>
