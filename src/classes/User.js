@@ -1,4 +1,4 @@
-import { users } from '../data/users';
+// import { users } from '../data/users';
 
 class User {
   constructor(user) {
@@ -9,7 +9,15 @@ class User {
     this.recipesToCook = []
   }
 
-  addFavoriteRecipe() {
+  addFavoriteRecipe(id, dataSet) {
+    // pass in idea
+    // find in recipe repo, a recipe with the correct idea
+    // push that recipe to favoriteRecipes
+    const foundRecipe = dataSet.find(recipe => recipe.id === id);
+
+    if (!this.favoriteRecipes.includes(foundRecipe)) {
+      this.favoriteRecipes.push(foundRecipe);
+    }
 
   }
 
@@ -21,3 +29,5 @@ class User {
 
   }
 }
+
+export default User
