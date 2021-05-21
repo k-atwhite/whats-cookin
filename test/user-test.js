@@ -1,12 +1,16 @@
 import { expect } from 'chai';
 import User from '../src/classes/User';
+import Recipe from '../src/classes/Recipe';
 import { userTestData } from '../src/data/test-user-data';
+import { recipeTestData } from '../src/data/test-recipe-data';
 
 describe('User', () => {
-let user
+  let user;
+  let recipe1;
 
   beforeEach('Instantiate user', () => {
-    user = new User(testUsers[0]);
+    user = new User(userTestData[0]);
+    recipe1 = new Recipe(recipeTestData[0]);
   });
 
   it('Should be a function', () => {
@@ -18,31 +22,60 @@ let user
   });
 
   it('Should have a name', () => {
-    expect(user.name).to.equal();
+    expect(user.name).to.equal('Saige O\'Kon');
   });
 
   it('Should have an id', () => {
-    expect(user.id).to.equal();
+    expect(user.id).to.equal(1);
   });
 
   it('Should have an array that holds favorite recipes', () => {
-    expect(user.favoriteRecipes).to.be.an('array');
+    expect(user.favoriteRecipes).to.deep.equal([]);
   });
 
   it('Should be able to add to favorite recipes', () => {
-    expect(user.favoriteRecipes).to.deep.equal();
+    user.addFavoriteRecipe(595736, recipeTestData)
+    expect(user.favoriteRecipes).to.deep.equal(
+      [{
+        'id': 595736,
+        'image': 'potato.org',
+        'ingredients': [
+          {
+            "id": 20081,
+            "quantity": {
+              "amount": 2,
+              "unit": "c"
+            }
+          },
+          {
+            "id": 18372,
+            "quantity": {
+              "amount": 1,
+              "unit": "tsp"
+            }
+          }
+        ],
+        'instructions': [
+          {"instruction": "Preheat oven to 170 – 200°F", "number": 1},
+          {"instruction": "Mix with warm water", "number": 2}
+        ],
+        'name': 'Whole Grain Bread',
+        'tags': ['bread']
+      }]
+    );
   });
 
-   it('Should be able to remove from favorite recipes', () => {
-    expect(user.favoriteRecipes).to.deep.equal();
-  });
+  //  it('Should be able to remove from favorite recipes', () => {
+  //   expect(user.favoriteRecipes).to.deep.equal();
+  // });
+  //
+  //
+  // it('Should have an array that holds recipes to cook this week', () => {
+  //   expect(user.recipesToCook).to.be.an('array');
+  // });
+  //
+  // it('Should be able to filter favorite recipes by name, ingredients, tag', () => {
+  //   expect().to.();
+  // });
 
-
-  it('Should have an array that holds recipes to cook this week', () => {
-    expect(user.recipesToCook).to.be.an('array');
-  });
 });
-
-  it('Should be able to filter favorite recipes by name, ingredients, tag', () => {
-    expect().to.();
-  });
