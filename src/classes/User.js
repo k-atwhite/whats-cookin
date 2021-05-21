@@ -9,42 +9,50 @@ class User {
     this.recipesToCook = []
   }
 
-  addFavoriteRecipe(id, dataSet) {
-    const foundRecipe = dataSet.find(recipe => recipe.id === id);
-
-    if (!this.favoriteRecipes.includes(foundRecipe)) {
-      this.favoriteRecipes.push(foundRecipe);
+  addFavoriteRecipe(recipe) {
+    if (!this.favoriteRecipes.includes(recipe)) {
+      this.favoriteRecipes.push(recipe);
     }
   }
 
-  removeFavoriteRecipe(id) {
-    const deleteIndex = this.favoriteRecipes.findIndex(recipe => recipe.id === id)
+  removeFavoriteRecipe(recipe) {
+    if (this.favoriteRecipes.includes(recipe)) {
+      const deleteIndex = this.favoriteRecipes.indexOf(recipe);
 
-    this.favoriteRecipes.splice(deleteIndex, 1);
+      this.favoriteRecipes.splice(deleteIndex, 1);
+    }
   }
 
   addToWeeklyMenu(recipe) {
       // can we just pass in recipe as an arument?
      // add whole object during event handling
      // easy to change to "foundID" method if necessary
-    if (!this.favoriteRecipes.includes(recipe)) {
+    if (!this.recipesToCook.includes(recipe)) {
       this.recipesToCook.push(recipe)
     }
   }
 
-  filterFavoriteRecipeByTag(searchText) {
-    const searchedTags = this.favoriteRecipes.filter((recipe) => this.favoriteRecipes.tags.includes(searchText))
-    // need to return but brackets are getting fucky
+  removeFromWeeklyMenu(recipe) {
+    if (this.recipesToCook.includes(recipe)) {
+      const deleteIndex = this.recipesToCook.indexOf(recipe);
+
+      this.recipesToCook.splice(deleteIndex, 1);
+    }
   }
 
-  filterFavoriteRecipeByName(searchText) {
-    const searchedNames = this.favoriteRecipes.filter(recipe => this.favoriteRecipes.name.includes(searchText))
-    // need to return but brackets are getting fucky
-  }
-
-  filterFavoriteRecipeByIngredients() {
-
-  }
+  // filterFavoriteRecipeByTag(searchText) {
+  //   const searchedTags = this.favoriteRecipes.filter((recipe) => this.favoriteRecipes.tags.includes(searchText))
+  //   // need to return but brackets are getting fucky
+  // }
+  //
+  // filterFavoriteRecipeByName(searchText) {
+  //   const searchedNames = this.favoriteRecipes.filter(recipe => this.favoriteRecipes.name.includes(searchText))
+  //   // need to return but brackets are getting fucky
+  // }
+  //
+  // filterFavoriteRecipeByIngredients() {
+  //
+  // }
 }
 
 export default User
