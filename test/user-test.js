@@ -65,11 +65,45 @@ describe('User', () => {
     );
   });
 
-  //  it('Should be able to remove from favorite recipes', () => {
-  //   expect(user.favoriteRecipes).to.deep.equal();
-  // });
-  //
-  //
+  it('Should not add a favorite recipe more than once', () => {
+    user.addFavoriteRecipe(595736, recipeTestData)
+    user.addFavoriteRecipe(595736, recipeTestData)
+    expect(user.favoriteRecipes).to.deep.equal(
+      [{
+        'id': 595736,
+        'image': 'potato.org',
+        'ingredients': [
+          {
+            "id": 20081,
+            "quantity": {
+              "amount": 2,
+              "unit": "c"
+            }
+          },
+          {
+            "id": 18372,
+            "quantity": {
+              "amount": 1,
+              "unit": "tsp"
+            }
+          }
+        ],
+        'instructions': [
+          {"instruction": "Preheat oven to 170 – 200°F", "number": 1},
+          {"instruction": "Mix with warm water", "number": 2}
+        ],
+        'name': 'Whole Grain Bread',
+        'tags': ['bread']
+      }]
+    );
+  });
+
+   it('Should be able to remove from favorite recipes', () => {
+    user.addFavoriteRecipe(595736, recipeTestData)
+    user.removeFavoriteRecipe(595736)
+    expect(user.favoriteRecipes).to.deep.equal([]);
+  });
+
   // it('Should have an array that holds recipes to cook this week', () => {
   //   expect(user.recipesToCook).to.be.an('array');
   // });
