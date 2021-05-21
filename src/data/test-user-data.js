@@ -394,7 +394,6 @@ export const userTestData = [
           "amount": 3
         }
       ]
-    }],
+    }]
 
     // export default userTestData;
-
