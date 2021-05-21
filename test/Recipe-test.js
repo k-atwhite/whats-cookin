@@ -1,5 +1,8 @@
 import { expect } from 'chai';
 import Recipe from '../src/classes/Recipe';
+import recipeData from './test-recipe-data.js';
+import ingredientData from './test-ingredient-data.js';
+
 describe('Recipe', () => {
 
   let ingredient1
@@ -51,8 +54,8 @@ describe('Recipe', () => {
   });
 
   it('Should have an image URL which is a string', () => {
-    expect(recipe.imageUrl).to.equal('potato.org')
-    expect(recipe.imageUrl).to.be.a('string')
+    expect(recipe.image).to.equal('potato.org')
+    expect(recipe.image).to.be.a('string')
   });
 
   it('Should have ingredients which are in an array', () => {
