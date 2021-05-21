@@ -1,17 +1,18 @@
 import { expect } from 'chai';
 import RecipeRepository from '../src/classes/RecipeRepository';
-// import Recipe from '../src/classes/Recipe';
-import recipeTestData from './test-recipe-data.js';
-// import ingredientData from './test-ingredient-data.js';
+import Recipe from '../src/classes/Recipe';
+import Ingredient from '../src/classes/Ingredient';
+import { recipeTestData } from '../src/data/test-recipe-data.js';
+import { ingredientTestData } from '../src/data/test-ingredient-data';
 
 
 describe('Recipe Repository', () => {
   let recipeRepository
 
   beforeEach('Instantiate recipeRepository', () => {
-    recipeRepository = new RecipeRepository(recipeTestData) 
+    recipeRepository = new RecipeRepository(recipeTestData, ingredientTestData)
   });
-  
+
   it('Should be a function', () => {
     expect(RecipeRepository).to.be.a('function');
   });
