@@ -1,3 +1,5 @@
+import { users } from '../data/users';
+
 class User {
   constructor(user) {
     this.name = user.name
@@ -8,7 +10,7 @@ class User {
   }
 
   addFavoriteRecipe() {
-    
+
   }
 
   filterFavoriteRecipe() {
