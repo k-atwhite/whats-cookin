@@ -21,6 +21,13 @@ class User {
 
   }
 
+  removeFavoriteRecipe(id) {
+
+    const deleteIndex = this.favoriteRecipes.findIndex(recipe => recipe.id === id)
+
+    this.favoriteRecipes.splice(deleteIndex, 1);
+  }
+
   filterFavoriteRecipe() {
     // by name, ingredient, tags
   }
