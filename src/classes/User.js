@@ -10,29 +10,39 @@ class User {
   }
 
   addFavoriteRecipe(id, dataSet) {
-    // pass in idea
-    // find in recipe repo, a recipe with the correct idea
-    // push that recipe to favoriteRecipes
     const foundRecipe = dataSet.find(recipe => recipe.id === id);
 
     if (!this.favoriteRecipes.includes(foundRecipe)) {
       this.favoriteRecipes.push(foundRecipe);
     }
-
   }
 
   removeFavoriteRecipe(id) {
-
     const deleteIndex = this.favoriteRecipes.findIndex(recipe => recipe.id === id)
 
     this.favoriteRecipes.splice(deleteIndex, 1);
   }
 
-  filterFavoriteRecipe() {
-    // by name, ingredient, tags
+  addToWeeklyMenu(recipe) {
+      // can we just pass in recipe as an arument?
+     // add whole object during event handling
+     // easy to change to "foundID" method if necessary
+    if (!this.favoriteRecipes.includes(recipe)) {
+      this.recipesToCook.push(recipe)
+    }
   }
 
-  addToWeeklyMenu() {
+  filterFavoriteRecipeByTag(searchText) {
+    const searchedTags = this.favoriteRecipes.filter((recipe) => this.favoriteRecipes.tags.includes(searchText))
+    // need to return but brackets are getting fucky
+  }
+
+  filterFavoriteRecipeByName(searchText) {
+    const searchedNames = this.favoriteRecipes.filter(recipe => this.favoriteRecipes.name.includes(searchText))
+    // need to return but brackets are getting fucky
+  }
+
+  filterFavoriteRecipeByIngredients() {
 
   }
 }
