@@ -1,35 +1,37 @@
-import Recipe from "./Recipe"
-import Ingredient from "./Ingredient";
-import { ingredientsData } from "../data/ingredients.js";
-import { recipeData } from "../data/recipes.js";
-// import recipeTestData from './test-recipe-data.js';
+import Recipe from './Recipe';
+
 
 class RecipeRepository {
-  constructor(recipeData) {
+  constructor(recipeData, ingredientsData) {
     this.recipes = recipeData.map(recipe => new Recipe(recipe))
+
+    this.ingredients = ingredientsData;
   }
 
   filterTags(searchText) {
     return this.recipes.filter((recipe) => recipe.tags.includes(searchText))
   }
 
-   filterName(searchText) {
+  filterName(searchText) {
     return this.recipes.filter((recipe) => recipe.name.includes(searchText))
-   }
+  }
 
   filterIngredients(searchText) {
-     ingId = this.ingredientsData.find((ingredient) => ingredient.name.includes(searchText))
-     console.log(ingId)
 
-    //  this.recipes.filter((recipe) => recipe.n)
-
-    // search through ingredients.js for searchText
-    // then use that associated id to search recipes
-    // w/in recipes.js return recipe.name
+    let ingMatch = this.ingredients.find(ingredient => ingredient.name.includes(searchText));
 
 
-    // const compiledIng = this.recipes.forEach(recipe => recipe.compileIngredients())
-    // return compiledIng.filter(recipe => recipe.getIngredientNames().includes(searchText))
+    return this.recipes.filter(recipe => {
+
+      return recipe.ingredients.reduce((acc, ingredient) => {
+
+        if (ingMatch.id === ingredient.id) {
+          acc = true;
+        }
+        return acc;
+      }, false)
+    })
+
   }
 }
 
