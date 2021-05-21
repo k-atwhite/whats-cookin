@@ -40,10 +40,11 @@ class User {
     }
   }
 
-  // filterFavoriteRecipeByTag(searchText) {
-  //   const searchedTags = this.favoriteRecipes.filter((recipe) => this.favoriteRecipes.tags.includes(searchText))
-  //   // need to return but brackets are getting fucky
-  // }
+  filterFavoriteRecipeByTag(searchText) {
+    const searchedTags = this.favoriteRecipes.filter(recipe => recipe.tags.includes(searchText))
+    return searchedTags;
+    // need to return but brackets are getting fucky
+  }
   //
   // filterFavoriteRecipeByName(searchText) {
   //   const searchedNames = this.favoriteRecipes.filter(recipe => this.favoriteRecipes.name.includes(searchText))
