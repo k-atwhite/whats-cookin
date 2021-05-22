@@ -10,9 +10,9 @@ class Recipe {
         this.tags = recipe.tags;
     }
 
-    compileIngredients() {
+    compileIngredients(dataSet) {
       const matchedIngredients = this.ingredients.map(ingredient => {
-        const foundIngredient = ingredientsData.find(dataIngredient => dataIngredient.id === ingredient.id)
+        const foundIngredient = dataSet.find(dataIngredient => dataIngredient.id === ingredient.id)
         const fullIngredient = Object.assign(foundIngredient, ingredient)
         return fullIngredient
       })

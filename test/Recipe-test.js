@@ -1,7 +1,7 @@
 import { expect } from 'chai';
 import Recipe from '../src/classes/Recipe';
-import recipeData from './test-recipe-data.js';
-import ingredientData from './test-ingredient-data.js';
+// import recipeData from './test-recipe-data.js';
+// import ingredientData from './test-ingredient-data.js';
 
 describe('Recipe', () => {
 
@@ -92,7 +92,7 @@ describe('Recipe', () => {
   });
 
   it('Should be able to compile all ingredient data', () => {
-    recipe.compileIngredients()
+    recipe.compileIngredients(ingredientData)
 
     expect(recipe.ingredients).to.deep.equal([{
       "estimatedCostInCents": 142,
@@ -114,17 +114,17 @@ describe('Recipe', () => {
   });
 
   it('Should return ingredient names', () => {
-    recipe.compileIngredients();
+    recipe.compileIngredients(ingredientData);
     expect(recipe.getIngredientNames()).to.deep.equal(["wheat flour", "bicarbonate of soda"])
   });
 
   it('Should return the instructions', () => {
-    recipe.compileIngredients();
+    recipe.compileIngredients(ingredientData);
     expect(recipe.getInstructions()).to.deep.equal(["Preheat oven to 170 – 200°F", "Mix with warm water"])
   });
 
   it('Should return the total cost of ingredients', () => {
-    recipe.compileIngredients();
+    recipe.compileIngredients(ingredientData);
     expect(recipe.getCost()).to.equal(866)
   });
 });
