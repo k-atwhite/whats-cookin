@@ -41,16 +41,16 @@ class User {
   }
 
   filterFavoriteRecipeByTag(searchText) {
-    const searchedTags = this.favoriteRecipes.filter(recipe => recipe.tags.includes(searchText))
+    const searchedTags = this.favoriteRecipes.filter(recipe => recipe.tags.includes(searchText.toLowerCase()))
     return searchedTags;
   }
 
   filterFavoriteRecipeByName(searchText) {
-    const searchedNames = this.favoriteRecipes.filter(recipe => recipe.name.includes(searchText))
+    const searchedNames = this.favoriteRecipes.filter(recipe => recipe.name.toLowerCase().includes(searchText.toLowerCase()))
     return searchedNames;
   }
-  //
-  // filterFavoriteRecipeByIngredients() {
+
+  // filterFavoriteRecipeByIngredients(searchText) {
   //
   // }
 }

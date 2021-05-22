@@ -17,21 +17,15 @@ class RecipeRepository {
   }
 
   filterIngredients(searchText) {
-
     let ingMatch = this.ingredients.find(ingredient => ingredient.name.includes(searchText));
-
-
     return this.recipes.filter(recipe => {
-
       return recipe.ingredients.reduce((acc, ingredient) => {
-
         if (ingMatch.id === ingredient.id) {
           acc = true;
         }
         return acc;
       }, false)
     })
-
   }
 }
 

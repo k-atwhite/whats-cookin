@@ -185,7 +185,9 @@ describe('User', () => {
     user.addFavoriteRecipe(recipe1)
     user.addFavoriteRecipe(recipe2)
     const filteredFavRecipes = user.filterFavoriteRecipeByTag('bread')
-    expect(filteredFavRecipes).to.deep.equal([
+    const filteredFavRecipes1 = user.filterFavoriteRecipeByTag('bReAd')
+    const filteredFavRecipes2 = user.filterFavoriteRecipeByTag('BREAD')
+    expect(filteredFavRecipes, filteredFavRecipes1, filteredFavRecipes2).to.deep.equal([
      {
        'id': 595736,
        'image': 'potato.org',
@@ -219,7 +221,9 @@ describe('User', () => {
      user.addFavoriteRecipe(recipe1)
      user.addFavoriteRecipe(recipe2)
      const filteredFavRecipes = user.filterFavoriteRecipeByName('Whole Grain Bread')
-     expect(filteredFavRecipes).to.deep.equal([
+     const filteredFavRecipes1 = user.filterFavoriteRecipeByName('wHoLe grAiN bReAd')
+     const filteredFavRecipes2 = user.filterFavoriteRecipeByName('whole grain bread')
+     expect(filteredFavRecipes, filteredFavRecipes1, filteredFavRecipes2).to.deep.equal([
       {
         'id': 595736,
         'image': 'potato.org',
@@ -248,6 +252,40 @@ describe('User', () => {
       }
     ]);
   });
+
+  it('Should be able to filter favorite recipes by ingredient', () => {
+    user.addFavoriteRecipe(recipe1)
+    user.addFavoriteRecipe(recipe2)
+    const filteredFavRecipes = user.filterFavoriteRecipeByIngredients('bread')
+    expect(filteredFavRecipes).to.deep.equal([
+     {
+       'id': 595736,
+       'image': 'potato.org',
+       'ingredients': [
+         {
+           "id": 20081,
+           "quantity": {
+             "amount": 2,
+             "unit": "c"
+           }
+         },
+         {
+           "id": 18372,
+           "quantity": {
+             "amount": 1,
+             "unit": "tsp"
+           }
+         }
+       ],
+       'instructions': [
+         {"instruction": "Preheat oven to 170 – 200°F", "number": 1},
+         {"instruction": "Mix with warm water", "number": 2}
+       ],
+       'name': 'Whole Grain Bread',
+       'tags': ['bread']
+     }
+   ]);
+ });
   // it('Should be able to filter favorite recipes by name, ingredients, tag', () => {
   //   expect().to.();
   // });
