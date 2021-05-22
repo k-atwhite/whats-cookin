@@ -1,8 +1,30 @@
 import './styles.css';
-import apiCalls from './apiCalls';
+// import apiCalls from './apiCalls';
+import { ingredientsData } from "./data/ingredients";
+import { recipeData } from "./data/recipes";
+import RecipeRepository from "./classes/RecipeRepository";
+
+// GLOBAL VARIABLE
+let recipeRepo = new RecipeRepository(recipeData, ingredientsData)
+
+// QUERY SELECTORS
+const searchBar = document.getElementById('searchBar')
+
+// EVENT LISTENERS
+searchBar.addEventListener('keyup', function(e) {
+    filterText(e)
+})
 
 
+//EVENT HANDLERS
+const filterText = (e) => {
+    let searchText = e.target.value.toLowerCase();
+    console.log(e.target.value)
 
+    recipeRepo.filterName(searchText)
+    recipeRepo.filterIngredients(searchText)
+    recipeRepo.filterTags(searchText)
+}
 
 console.log('Hello world');
 
