@@ -50,8 +50,20 @@ class User {
     return searchedNames;
   }
 
+  // filterIngredients(searchText) {
+  //   let ingMatch = this.ingredients.find(ingredient => ingredient.name.includes(searchText));
+  //   return this.recipes.filter(recipe => {
+  //     return recipe.ingredients.reduce((acc, ingredient) => {
+  //       if (ingMatch.id === ingredient.id) {
+  //         acc = true;
+  //       }
+  //       return acc;
+  //     }, false)
+  //   })
+  // }
+
   // filterFavoriteRecipeByIngredients(searchText) {
-  //
+  //   let recipeMatch = this.favoriteRecipes.filter(recipe => recipe.ingredients.id )
   // }
 }
 

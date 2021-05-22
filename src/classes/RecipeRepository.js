@@ -4,7 +4,6 @@ import Recipe from './Recipe';
 class RecipeRepository {
   constructor(recipeData, ingredientsData) {
     this.recipes = recipeData.map(recipe => new Recipe(recipe))
-
     this.ingredients = ingredientsData;
   }
 
