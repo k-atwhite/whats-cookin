@@ -2,22 +2,33 @@ import './styles.css';
 // import apiCalls from './apiCalls';
 import { ingredientsData } from "./data/ingredients";
 import { recipeData } from "./data/recipes";
+import { usersData } from "./data/users";
+
 import RecipeRepository from "./classes/RecipeRepository";
 
-// GLOBAL VARIABLE
+// GLOBAL VARIABLE/FUNCTION
 let recipeRepo = new RecipeRepository(recipeData, ingredientsData)
+
+const greetUser = () => {
+    let randomUser = usersData[Math.floor(Math.random() * usersData.length)]
+    welcomeMsg.innerHTML = `Welcome ${randomUser.name}!`
+}
 
 // QUERY SELECTORS
 const searchBar = document.getElementById('searchBar')
 const searchResults = document.getElementById('searchResults')
+const welcomeMsg = document.getElementById('welcome')
+
 
 // EVENT LISTENERS
 searchBar.addEventListener('keyup', function(e) {
     renderRecipes(searchResults, filterText(e))
 })
+window.addEventListener('load', greetUser)
 
 
 //EVENT HANDLERS
+
 const removeDuplicates = (duplicateList) => {
     let flag = {}
     let uniqueRecipes = []
@@ -61,10 +72,6 @@ console.log('Hello world');
 // User Stories
 // Use the scripts.js file to add information to the DOM.
 // ITERATION 1
-// As a user, I should be able to view a list of all recipes.
-    //OPEN WINDOW - have all the necessary buttons. But also - just show all the recipes at once WITH the searchbar on top
-    // have a displayCharacters function - use map for each recipe object. And convert each object into innerHTML.  
-    // event handler - a render function, where ALL recipe data is displayed in the "all recipe container" via innerHTML
 
 // As a user, I should be able to click on a recipe to view more information including directions, ingredients needed, and total cost.
     // User clicks any recipe
