@@ -18,7 +18,8 @@ const greetUser = () => {
 const searchBar = document.getElementById('searchBar')
 const searchResults = document.getElementById('searchResults')
 const welcomeMsg = document.getElementById('welcome')
-// const recipeModal = document.getElementbyID('recipeModal')
+const recipeModal = document.getElementById('recipeModal')
+const modalInfo = document.getElementById('modalInfo')
 // const favButton = document.getElementbyID('favButton')
 // const menuButton = document.getElementbyID('menuButton')
 
@@ -29,7 +30,7 @@ searchBar.addEventListener('keyup', function(e) {
 })
 
 searchResults.addEventListener('click', function(e) {
-  //renderModal
+    renderModal(e)
 })
 window.addEventListener('load', greetUser)
 
@@ -81,11 +82,27 @@ const toggleHidden = (element) => {
   element.classList.toggle('hidden')
 }
 
+const renderModal = (e) => {
+  let eventID = parseInt(e.target.closest('section').id)
+  console.log(eventID)
+  console.log(recipeRepo.recipes[0].id)
+  if (e.target.closest('section').classList.contains('recipe-card')) {
+    let matchedRecipe = recipeRepo.recipes.find(recipe => eventID === recipe.id)
+    modalInfo.innerHTML = `<p>${matchedRecipe.name}</p>
+    <p><img src=${matchedRecipe.image}></p>
+    <p>${matchedRecipe.getIngredientNames()}</p>
+    <p>${matchedRecipe.getInstructions()}</p>
+    <p>${matchedRecipe.getCost()}</p>`
+    toggleHidden(recipeModal)
+  }
+}
+
 // ITERATION 1
 // MODAL
     // User clicks any recipe
     // ever.target.id from that click is used as a parameter in the event handler function to display the name, directions, ingredients, total cost in The modal!
     // run getIngredientNames, getInstructions, getCost - Display!
+    //
 
 // ITERATION 2
 
