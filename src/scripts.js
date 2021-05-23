@@ -18,9 +18,9 @@ const greetUser = () => {
 const searchBar = document.getElementById('searchBar')
 const searchResults = document.getElementById('searchResults')
 const welcomeMsg = document.getElementById('welcome')
-const recipeModal = document.getElementbyID('recipeModal')
-const favButton = document.getElementbyID('favButton')
-const menuButton = document.getElementbyID('menuButton')
+// const recipeModal = document.getElementbyID('recipeModal')
+// const favButton = document.getElementbyID('favButton')
+// const menuButton = document.getElementbyID('menuButton')
 
 
 // EVENT LISTENERS
@@ -29,9 +29,9 @@ searchBar.addEventListener('keyup', function(e) {
 })
 window.addEventListener('load', greetUser)
 
-favButton.addEventListener('click', addToFavRecipes)
+// favButton.addEventListener('click', addToFavRecipes)
 
-menuButton.addEventListener('click', addToWeekMenu)
+// menuButton.addEventListener('click', addToWeekMenu)
 
 
 //EVENT HANDLERS
