@@ -18,13 +18,28 @@ searchBar.addEventListener('keyup', function(e) {
 
 
 //EVENT HANDLERS
+const removeDuplicates = (duplicateList) => {
+    let flag = {}
+    let uniqueRecipes = []
+    duplicateList.forEach(recipe => {
+        if (!flag[recipe.id]) {
+            flag[recipe.id] = true
+            uniqueRecipes.push(recipe)
+        }
+    })
+    return uniqueRecipes
+}
+
 const filterText = (e) => {
     let searchText = e.target.value.toLowerCase();
     // console.log(e.target.value)
-    let filteredRecipes = [recipeRepo.filterName(searchText), recipeRepo.filterIngredients(searchText),recipeRepo.filterTags(searchText)]
-
+    let names = recipeRepo.filterName(searchText);
+    let ingredients = recipeRepo.filterIngredients(searchText);
+    let tags = recipeRepo.filterTags(searchText);
+    let flattenedRecipes = [names, ingredients, tags].flat()
     // console.log(filteredRecipes.flat())
-    return filteredRecipes.flat()
+    let filteredRecipes = removeDuplicates(flattenedRecipes)
+    return filteredRecipes
 }
 
 const renderRecipes = (container, dataSet) => {
