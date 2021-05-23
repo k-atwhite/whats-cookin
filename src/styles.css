@@ -45,7 +45,15 @@ input {
   width: 100%;
 }
 
+.recipe-img {
+  height: 20vh;
+  width: 12vw;
+}
+
 .test {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   margin: 2%;
   background-color: lightblue;
   width: 250px;

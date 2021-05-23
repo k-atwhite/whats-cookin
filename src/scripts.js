@@ -13,31 +13,33 @@ const searchResults = document.getElementById('searchResults')
 
 // EVENT LISTENERS
 searchBar.addEventListener('keyup', function(e) {
-    filterText(e);
-    // renderRecipes()
+    renderRecipes(searchResults, filterText(e))
 })
 
 
 //EVENT HANDLERS
 const filterText = (e) => {
     let searchText = e.target.value.toLowerCase();
-    console.log(e.target.value)
-
+    // console.log(e.target.value)
     let filteredRecipes = [recipeRepo.filterName(searchText), recipeRepo.filterIngredients(searchText),recipeRepo.filterTags(searchText)]
-    
-    console.log(filteredRecipes.flat())
 
+    // console.log(filteredRecipes.flat())
     return filteredRecipes.flat()
 }
 
-// const renderRecipes = (container, dataSet) => {
-//     dataSet = filteredRecipes
-//     // set innerHTML to empty string - clear before populating
-//     dataSet.forEach(recipe => searchResults.innerHTML +=)
-
-//     // use this for search results, favs, weeklymenu
-//     // use map for each recipe object.And convert each object into innerHTML.
-// }
+const renderRecipes = (container, dataSet) => {
+    container.innerHTML = ""
+    dataSet.forEach(recipe => {container.innerHTML +=
+        `<section class="recipe-card test" id=${recipe.id}>
+        ${recipe.name} 
+        <img src=${recipe.image} class="recipe-img">
+        <button class="add-favorites">fav me!</button>
+        <button class="add-week-menu">add to menu!</button>
+        </section>
+        `
+    })
+    // use this same function for search results, favs, and weekly menu
+}
 
 console.log('Hello world');
 
