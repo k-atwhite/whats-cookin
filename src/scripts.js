@@ -9,10 +9,12 @@ let recipeRepo = new RecipeRepository(recipeData, ingredientsData)
 
 // QUERY SELECTORS
 const searchBar = document.getElementById('searchBar')
+const searchResults = document.getElementById('searchResults')
 
 // EVENT LISTENERS
 searchBar.addEventListener('keyup', function(e) {
-    filterText(e)
+    filterText(e);
+    // renderRecipes()
 })
 
 
@@ -21,10 +23,21 @@ const filterText = (e) => {
     let searchText = e.target.value.toLowerCase();
     console.log(e.target.value)
 
-    recipeRepo.filterName(searchText)
-    recipeRepo.filterIngredients(searchText)
-    recipeRepo.filterTags(searchText)
+    let filteredRecipes = [recipeRepo.filterName(searchText), recipeRepo.filterIngredients(searchText),recipeRepo.filterTags(searchText)]
+    
+    console.log(filteredRecipes.flat())
+
+    return filteredRecipes.flat()
 }
+
+// const renderRecipes = (container, dataSet) => {
+//     dataSet = filteredRecipes
+//     // set innerHTML to empty string - clear before populating
+//     dataSet.forEach(recipe => searchResults.innerHTML +=)
+
+//     // use this for search results, favs, weeklymenu
+//     // use map for each recipe object.And convert each object into innerHTML.
+// }
 
 console.log('Hello world');
 
@@ -33,24 +46,7 @@ console.log('Hello world');
 // ITERATION 1
 // As a user, I should be able to view a list of all recipes.
     //OPEN WINDOW - have all the necessary buttons. But also - just show all the recipes at once WITH the searchbar on top
-    // have a displayCharacters function - use map for each recipe object. And convert each object into innerHTML. 
-    // When user is typing into searchbox, get a reference from the searchbox - getElementById - to access the searchbox
-    
-    // call this const loadRecipes
-    // searchBar.addEventListener('keyup', () => {
-    // const searchText = e.target.value.toLowerCase();
-    //    console.log(e.target.value)
-    // const filteredRecipes = recipes.filter( (recipe) => {
-    //          call all three filtering methods(play with this)
-   //       })
-    // })
-
-    // event.target.value (that gets each key)
-    // create global variable for let recipes = []
-
-
-    // click event listener runs event hander + hide/show function
-    // HTML already has an "all recipe container' where all the recipes will appear
+    // have a displayCharacters function - use map for each recipe object. And convert each object into innerHTML.  
     // event handler - a render function, where ALL recipe data is displayed in the "all recipe container" via innerHTML
 
 // As a user, I should be able to click on a recipe to view more information including directions, ingredients needed, and total cost.

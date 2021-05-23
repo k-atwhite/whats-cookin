@@ -10,16 +10,18 @@ class RecipeRepository {
   }
 
   filterTags(searchText) {
-    console.log(this.recipes[0].ingredients);
-    return this.recipes.filter((recipe) => recipe.tags.includes(searchText))
+    return this.recipes.filter((recipe) => {
+      recipe.tags.forEach(tag => tag.toLowerCase())
+      return recipe.tags.includes(searchText)
+    })
   }
 
   filterName(searchText) {
-    return this.recipes.filter((recipe) => recipe.name.includes(searchText))
+    return this.recipes.filter((recipe) => recipe.name.toLowerCase().includes(searchText))
   }
 
   filterIngredients(searchText) {
-    let ingMatch = this.ingredients.find(ingredient => ingredient.name.includes(searchText));
+    let ingMatch = this.ingredients.find(ingredient => ingredient.name.toLowerCase().includes(searchText));
     return this.recipes.filter(recipe => {
       return recipe.ingredients.reduce((acc, ingredient) => {
         if (ingMatch.id === ingredient.id) {
