@@ -27,6 +27,10 @@ const welcomeMsg = document.getElementById('welcome')
 searchBar.addEventListener('keyup', function(e) {
     renderRecipes(searchResults, filterText(e))
 })
+
+searchResults.addEventListener('click', function(e) {
+  //renderModal
+})
 window.addEventListener('load', greetUser)
 
 // favButton.addEventListener('click', addToFavRecipes)
@@ -63,7 +67,7 @@ const renderRecipes = (container, dataSet) => {
     container.innerHTML = ""
     dataSet.forEach(recipe => {container.innerHTML +=
         `<section class="recipe-card test" id=${recipe.id}>
-        ${recipe.name} 
+        ${recipe.name}
         <img src=${recipe.image} class="recipe-img">
         <button class="add-favorites" id='favButton'>fav me!</button>
         <button class="add-week-menu" id="menuButton">add to menu!</button>
@@ -73,10 +77,14 @@ const renderRecipes = (container, dataSet) => {
     // use this same function for search results, favs, and weekly menu
 }
 
+const toggleHidden = (element) => {
+  element.classList.toggle('hidden')
+}
+
 // ITERATION 1
 // MODAL
     // User clicks any recipe
-    // ever.target.id from that click is used as a parameter in the event handler function to display the name, directions, ingredients, total cost in The modal! 
+    // ever.target.id from that click is used as a parameter in the event handler function to display the name, directions, ingredients, total cost in The modal!
     // run getIngredientNames, getInstructions, getCost - Display!
 
 // ITERATION 2
