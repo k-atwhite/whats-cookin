@@ -48,6 +48,7 @@ favButton.addEventListener('click', function() {
   toggleHidden(searchResults)
   toggleHidden(homeButton)
   toggleHidden(favSection)
+  renderRecipes(favSection, user.favoriteRecipes)
 })
 
 
