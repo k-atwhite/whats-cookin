@@ -1,18 +1,19 @@
 import './styles.css';
-// import apiCalls from './apiCalls';
+import { fetchApiData } from './apiCalls';
 import { ingredientsData } from "./data/ingredients";
-import { recipeData } from "./data/recipes";
+// import { recipeData } from "./data/recipes";
 import { usersData } from "./data/users";
 
 import User from "./classes/User";
 import RecipeRepository from "./classes/RecipeRepository";
 
 // GLOBAL VARIABLE/FUNCTION
-let recipeRepo = new RecipeRepository(recipeData, ingredientsData)
+let recipeRepo;
+// let recipeRepo = new RecipeRepository(recipeData, ingredientsData)
 let user = new User(usersData[Math.floor(Math.random() * usersData.length)])
 
 const greetUser = () => {
-    welcomeMsg.innerHTML = `Welcome ${user.name}!`
+  welcomeMsg.innerHTML = `Welcome ${user.name}!`
 }
 
 // QUERY SELECTORS
@@ -78,7 +79,10 @@ menuButton.addEventListener('click', function() {
   renderRecipesNoButtons(menuSection, user.recipesToCook)
 })
 
-window.addEventListener('load', greetUser)
+window.addEventListener('load', function() {
+  greetUser();
+  setUpRepo();
+})
 
 // favButton.addEventListener('click', addToFavRecipes)
 
@@ -86,6 +90,15 @@ window.addEventListener('load', greetUser)
 
 
 //EVENT HANDLERS
+
+const setUpRepo = () => {
+  fetchApiData('recipes')
+    .then(data => {
+      recipeRepo = new RecipeRepository(data.recipeData, ingredientsData);
+    })
+    .then(() => renderRecipes(searchResults, recipeRepo.recipes))
+};
+
 const removeDuplicates = (duplicateList) => {
     let flag = {}
     let uniqueRecipes = []
