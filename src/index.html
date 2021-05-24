@@ -10,9 +10,9 @@
     <header>
       <h1 class="welcome" id="welcome">Welcome Placeholder</h1>
       <nav>
-        <button class="navigation-button home-button hidden">home</button>
-        <button class="navigation-button week-menu-button">weekly menu</button>
-        <button class="navigation-button favorite-button">favorite recipes</button>
+        <button class="navigation-button home-button hidden" id="homeButton">home</button>
+        <button class="navigation-button week-menu-button" id="menuButton">weekly menu</button>
+        <button class="navigation-button favorite-button" id="favButton">favorite recipes</button>
       </nav>
     </header>
     <main>
@@ -20,11 +20,11 @@
         <section class="search-results container" id="searchResults">
           <section class="test"></section>
         </section>
-        <section class="recipes-to-cook-section container">
+        <section class="recipes-to-cook-section container hidden">
           <!-- Dynamically change h1 to read "Weekly Menu"
           show the Weekly Menu Array -->
         </section>
-        <section class="favorites-section container">
+        <section class="favorites-section container hidden" id="favSection">
           <!-- Dynamically change h1 to read "Favorites Section"
           show the Favorites Array -->
         </section>

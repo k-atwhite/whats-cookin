@@ -21,7 +21,9 @@ const welcomeMsg = document.getElementById('welcome')
 const recipeModal = document.getElementById('recipeModal')
 const modalInfo = document.getElementById('modalInfo')
 const closeModal = document.getElementById('closeModal')
-// const favButton = document.getElementbyID('favButton')
+const favButton = document.getElementById('favButton')
+const homeButton = document.getElementById('homeButton')
+const favSection = document.getElementById('favSection')
 // const menuButton = document.getElementbyID('menuButton')
 
 
@@ -36,6 +38,13 @@ searchResults.addEventListener('click', function(e) {
 
 closeModal.addEventListener('click', function() {
   toggleHidden(recipeModal)
+})
+
+favButton.addEventListener('click', function() {
+  toggleHidden(favButton)
+  toggleHidden(searchResults)
+  toggleHidden(homeButton)
+  toggleHidden(favSection)
 })
 
 window.addEventListener('load', greetUser)
@@ -74,8 +83,8 @@ const renderRecipes = (container, dataSet) => {
         `<section class="recipe-card test" id=${recipe.id}>
         ${recipe.name}
         <img src=${recipe.image} class="recipe-img">
-        <button class="add-favorites" id='favButton'>fav me!</button>
-        <button class="add-week-menu" id="menuButton">add to menu!</button>
+        <button class="add-favorites" id='addFav'>fav me!</button>
+        <button class="add-week-menu" id="addToMenu">add to menu!</button>
         </section>
         `
     })
