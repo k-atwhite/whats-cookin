@@ -18,7 +18,9 @@ const greetUser = () => {
 const searchBar = document.getElementById('searchBar')
 const searchResults = document.getElementById('searchResults')
 const welcomeMsg = document.getElementById('welcome')
-// const recipeModal = document.getElementbyID('recipeModal')
+const recipeModal = document.getElementById('recipeModal')
+const modalInfo = document.getElementById('modalInfo')
+const closeModal = document.getElementById('closeModal')
 // const favButton = document.getElementbyID('favButton')
 // const menuButton = document.getElementbyID('menuButton')
 
@@ -27,6 +29,15 @@ const welcomeMsg = document.getElementById('welcome')
 searchBar.addEventListener('keyup', function(e) {
     renderRecipes(searchResults, filterText(e))
 })
+
+searchResults.addEventListener('click', function(e) {
+    renderModal(e)
+})
+
+closeModal.addEventListener('click', function() {
+  toggleHidden(recipeModal)
+})
+
 window.addEventListener('load', greetUser)
 
 // favButton.addEventListener('click', addToFavRecipes)
@@ -49,12 +60,10 @@ const removeDuplicates = (duplicateList) => {
 
 const filterText = (e) => {
     let searchText = e.target.value.toLowerCase();
-    // console.log(e.target.value)
     let names = recipeRepo.filterName(searchText);
     let ingredients = recipeRepo.filterIngredients(searchText);
     let tags = recipeRepo.filterTags(searchText);
     let flattenedRecipes = [names, ingredients, tags].flat()
-    // console.log(filteredRecipes.flat())
     let filteredRecipes = removeDuplicates(flattenedRecipes)
     return filteredRecipes
 }
@@ -63,21 +72,31 @@ const renderRecipes = (container, dataSet) => {
     container.innerHTML = ""
     dataSet.forEach(recipe => {container.innerHTML +=
         `<section class="recipe-card test" id=${recipe.id}>
-        ${recipe.name} 
+        ${recipe.name}
         <img src=${recipe.image} class="recipe-img">
         <button class="add-favorites" id='favButton'>fav me!</button>
         <button class="add-week-menu" id="menuButton">add to menu!</button>
         </section>
         `
     })
-    // use this same function for search results, favs, and weekly menu
 }
 
-// ITERATION 1
-// MODAL
-    // User clicks any recipe
-    // ever.target.id from that click is used as a parameter in the event handler function to display the name, directions, ingredients, total cost in The modal! 
-    // run getIngredientNames, getInstructions, getCost - Display!
+const toggleHidden = (element) => {
+  element.classList.toggle('hidden')
+}
+
+const renderModal = (e) => {
+  let eventID = parseInt(e.target.closest('section').id)
+  if (e.target.closest('section').classList.contains('recipe-card')) {
+    let matchedRecipe = recipeRepo.recipes.find(recipe => eventID === recipe.id)
+    modalInfo.innerHTML = `<p>${matchedRecipe.name}</p>
+    <p><img src=${matchedRecipe.image}></p>
+    <p>${matchedRecipe.getIngredientNames()}</p>
+    <p>${matchedRecipe.getInstructions()}</p>
+    <p>${matchedRecipe.getCost()}</p>`
+    toggleHidden(recipeModal)
+  }
+}
 
 // ITERATION 2
 

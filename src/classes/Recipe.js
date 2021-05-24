@@ -29,10 +29,11 @@ class Recipe {
     }
 
     getCost() {
-      return this.ingredients.reduce((acc, ingredient) => {
+      let total = this.ingredients.reduce((acc, ingredient) => {
         acc += ingredient.estimatedCostInCents * ingredient.quantity.amount
-        return acc
+        return acc;
       }, 0)
+      return (total/100).toFixed(2)
     }
 }
 export default Recipe
