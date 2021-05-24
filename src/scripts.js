@@ -60,12 +60,10 @@ const removeDuplicates = (duplicateList) => {
 
 const filterText = (e) => {
     let searchText = e.target.value.toLowerCase();
-    // console.log(e.target.value)
     let names = recipeRepo.filterName(searchText);
     let ingredients = recipeRepo.filterIngredients(searchText);
     let tags = recipeRepo.filterTags(searchText);
     let flattenedRecipes = [names, ingredients, tags].flat()
-    // console.log(filteredRecipes.flat())
     let filteredRecipes = removeDuplicates(flattenedRecipes)
     return filteredRecipes
 }
@@ -81,7 +79,6 @@ const renderRecipes = (container, dataSet) => {
         </section>
         `
     })
-    // use this same function for search results, favs, and weekly menu
 }
 
 const toggleHidden = (element) => {
@@ -90,8 +87,6 @@ const toggleHidden = (element) => {
 
 const renderModal = (e) => {
   let eventID = parseInt(e.target.closest('section').id)
-  console.log(eventID)
-  console.log(recipeRepo.recipes[0].id)
   if (e.target.closest('section').classList.contains('recipe-card')) {
     let matchedRecipe = recipeRepo.recipes.find(recipe => eventID === recipe.id)
     modalInfo.innerHTML = `<p>${matchedRecipe.name}</p>
@@ -102,13 +97,6 @@ const renderModal = (e) => {
     toggleHidden(recipeModal)
   }
 }
-
-// ITERATION 1
-// MODAL
-    // User clicks any recipe
-    // ever.target.id from that click is used as a parameter in the event handler function to display the name, directions, ingredients, total cost in The modal!
-    // run getIngredientNames, getInstructions, getCost - Display!
-    //
 
 // ITERATION 2
 
