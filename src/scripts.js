@@ -20,6 +20,7 @@ const searchResults = document.getElementById('searchResults')
 const welcomeMsg = document.getElementById('welcome')
 const recipeModal = document.getElementById('recipeModal')
 const modalInfo = document.getElementById('modalInfo')
+const closeModal = document.getElementById('closeModal')
 // const favButton = document.getElementbyID('favButton')
 // const menuButton = document.getElementbyID('menuButton')
 
@@ -32,6 +33,11 @@ searchBar.addEventListener('keyup', function(e) {
 searchResults.addEventListener('click', function(e) {
     renderModal(e)
 })
+
+closeModal.addEventListener('click', function() {
+  toggleHidden(recipeModal)
+})
+
 window.addEventListener('load', greetUser)
 
 // favButton.addEventListener('click', addToFavRecipes)
