@@ -26,7 +26,8 @@ const closeModal = document.getElementById('closeModal')
 const favButton = document.getElementById('favButton')
 const homeButton = document.getElementById('homeButton')
 const favSection = document.getElementById('favSection')
-// const menuButton = document.getElementbyID('menuButton')
+const menuButton = document.getElementById('menuButton')
+const menuSection = document.getElementById('menuSection')
 
 
 // EVENT LISTENERS
@@ -44,13 +45,20 @@ closeModal.addEventListener('click', function() {
 })
 
 favButton.addEventListener('click', function() {
-  toggleHidden(favButton)
-  toggleHidden(searchResults)
-  toggleHidden(homeButton)
-  toggleHidden(favSection)
+  toggleHidden(homeButton, searchResults)
+  toggleHidden(favButton, favSection)
   renderRecipes(favSection, user.favoriteRecipes)
 })
 
+homeButton.addEventListener('click', function() {
+  toggleHidden(homeButton, searchResults)
+  displayHomePage();
+})
+
+menuButton.addEventListener('click', function() {
+  toggleHidden(homeButton, searchResults)
+  toggleHidden(menuButton, menuSection)
+})
 
 window.addEventListener('load', greetUser)
 
@@ -95,8 +103,14 @@ const renderRecipes = (container, dataSet) => {
     })
 }
 
-const toggleHidden = (element) => {
-  element.classList.toggle('hidden')
+const toggleHidden = (element1, element2) => {
+  element1.classList.toggle('hidden')
+  element2.classList.toggle('hidden')
+}
+
+const displayHomePage = () => {
+  favButton.classList.remove('hidden')
+  menuButton.classList.remove('hidden')
 }
 
 const renderModal = (e) => {
