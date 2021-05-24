@@ -24,9 +24,6 @@ class User {
   }
 
   addToWeeklyMenu(recipe) {
-      // can we just pass in recipe as an arument?
-     // add whole object during event handling
-     // easy to change to "foundID" method if necessary
     if (!this.recipesToCook.includes(recipe)) {
       this.recipesToCook.push(recipe)
     }

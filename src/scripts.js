@@ -12,7 +12,6 @@ let recipeRepo = new RecipeRepository(recipeData, ingredientsData)
 let user = new User(usersData[Math.floor(Math.random() * usersData.length)])
 
 const greetUser = () => {
-    // let randomUser = usersData[Math.floor(Math.random() * usersData.length)]
     welcomeMsg.innerHTML = `Welcome ${user.name}!`
 }
 
@@ -37,7 +36,16 @@ searchBar.addEventListener('keyup', function(e) {
 
 searchResults.addEventListener('click', function(e) {
     addToFav(e)
+    addtoWeeklyMenu(e)
     renderModal(e)
+})
+
+menuSection.addEventListener('click', function(e) {
+  renderModal(e)
+})
+
+favSection.addEventListener('click', function (e) {
+  renderModal(e)
 })
 
 closeModal.addEventListener('click', function() {
@@ -45,19 +53,29 @@ closeModal.addEventListener('click', function() {
 })
 
 favButton.addEventListener('click', function() {
-  toggleHidden(homeButton, searchResults)
+  show(homeButton)
+  show(menuButton)
+  hide(searchResults)
+  hide(menuSection)
   toggleHidden(favButton, favSection)
-  renderRecipes(favSection, user.favoriteRecipes)
+  renderRecipesNoButtons(favSection, user.favoriteRecipes)
 })
 
 homeButton.addEventListener('click', function() {
   toggleHidden(homeButton, searchResults)
-  displayHomePage();
+  hide(favSection)
+  hide(menuSection)
+  show(favButton)
+  show(menuButton)
 })
 
 menuButton.addEventListener('click', function() {
-  toggleHidden(homeButton, searchResults)
+  show(favButton)
+  show(homeButton)
+  hide(searchResults)
+  hide(favSection)
   toggleHidden(menuButton, menuSection)
+  renderRecipesNoButtons(menuSection, user.recipesToCook)
 })
 
 window.addEventListener('load', greetUser)
@@ -103,14 +121,29 @@ const renderRecipes = (container, dataSet) => {
     })
 }
 
+const renderRecipesNoButtons = (container, dataSet) => {
+  container.innerHTML = ""
+  dataSet.forEach(recipe => {
+    container.innerHTML +=
+    `<section class="recipe-card test" id=${recipe.id}>
+        ${recipe.name}
+        <img src=${recipe.image} class="recipe-img">
+        </section>
+        `
+  })
+}
+
 const toggleHidden = (element1, element2) => {
   element1.classList.toggle('hidden')
   element2.classList.toggle('hidden')
 }
 
-const displayHomePage = () => {
-  favButton.classList.remove('hidden')
-  menuButton.classList.remove('hidden')
+const hide = (element) => {
+  element.classList.add('hidden')
+}
+
+const show = (element) => {
+  element.classList.remove('hidden')
 }
 
 const renderModal = (e) => {
@@ -121,7 +154,7 @@ const renderModal = (e) => {
     <p><img src=${matchedRecipe.image}></p>
     <p>${matchedRecipe.getIngredientNames()}</p>
     <p>${matchedRecipe.getInstructions()}</p>
-    <p>${matchedRecipe.getCost()}</p>`
+    <p>$${matchedRecipe.getCost()}</p>`
     toggleHidden(recipeModal)
   }
 }
@@ -134,7 +167,14 @@ const addToFav = (e) => {
   }
 }
 
-//separate handler looks for fav button click, else looks for menu button click, else renderModal
+const addtoWeeklyMenu = (e) => {
+  let eventID = parseInt(e.target.closest('section').id)
+  if (e.target.classList.contains('add-week-menu')) {
+    let matchedRecipe = recipeRepo.recipes.find(recipe => eventID === recipe.id)
+    user.addToWeeklyMenu(matchedRecipe)
+  }
+}
+
 
 // ITERATION 2
 
