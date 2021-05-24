@@ -4,14 +4,16 @@ import { ingredientsData } from "./data/ingredients";
 import { recipeData } from "./data/recipes";
 import { usersData } from "./data/users";
 
+import User from "./classes/User";
 import RecipeRepository from "./classes/RecipeRepository";
 
 // GLOBAL VARIABLE/FUNCTION
 let recipeRepo = new RecipeRepository(recipeData, ingredientsData)
+let user = new User(usersData[Math.floor(Math.random() * usersData.length)])
 
 const greetUser = () => {
-    let randomUser = usersData[Math.floor(Math.random() * usersData.length)]
-    welcomeMsg.innerHTML = `Welcome ${randomUser.name}!`
+    // let randomUser = usersData[Math.floor(Math.random() * usersData.length)]
+    welcomeMsg.innerHTML = `Welcome ${user.name}!`
 }
 
 // QUERY SELECTORS
@@ -33,6 +35,7 @@ searchBar.addEventListener('keyup', function(e) {
 })
 
 searchResults.addEventListener('click', function(e) {
+    addToFav(e)
     renderModal(e)
 })
 
@@ -46,6 +49,7 @@ favButton.addEventListener('click', function() {
   toggleHidden(homeButton)
   toggleHidden(favSection)
 })
+
 
 window.addEventListener('load', greetUser)
 
@@ -106,6 +110,16 @@ const renderModal = (e) => {
     toggleHidden(recipeModal)
   }
 }
+
+const addToFav = (e) => {
+  let eventID = parseInt(e.target.closest('section').id)
+  if (e.target.classList.contains('add-favorites')) {
+    let matchedRecipe = recipeRepo.recipes.find(recipe => eventID === recipe.id)
+    user.addFavoriteRecipe(matchedRecipe)
+  }
+}
+
+//separate handler looks for fav button click, else looks for menu button click, else renderModal
 
 // ITERATION 2
 
