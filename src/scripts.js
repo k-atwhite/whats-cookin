@@ -1,20 +1,13 @@
 import './styles.css';
 import { fetchApiData } from './apiCalls';
-import { ingredientsData } from "./data/ingredients";
-// import { recipeData } from "./data/recipes";
-import { usersData } from "./data/users";
 
 import User from "./classes/User";
 import RecipeRepository from "./classes/RecipeRepository";
 
 // GLOBAL VARIABLE/FUNCTION
 let recipeRepo;
-// let recipeRepo = new RecipeRepository(recipeData, ingredientsData)
-let user = new User(usersData[Math.floor(Math.random() * usersData.length)])
+let user;
 
-const greetUser = () => {
-  welcomeMsg.innerHTML = `Welcome ${user.name}!`
-}
 
 // QUERY SELECTORS
 const searchBar = document.getElementById('searchBar')
@@ -58,12 +51,14 @@ favButton.addEventListener('click', function() {
   show(menuButton)
   hide(searchResults)
   hide(menuSection)
-  toggleHidden(favButton, favSection)
+  toggleHidden(favButton)
+  toggleHidden(favSection)
   renderRecipesNoButtons(favSection, user.favoriteRecipes)
 })
 
 homeButton.addEventListener('click', function() {
-  toggleHidden(homeButton, searchResults)
+  toggleHidden(homeButton)
+  toggleHidden(searchResults)
   hide(favSection)
   hide(menuSection)
   show(favButton)
@@ -75,28 +70,46 @@ menuButton.addEventListener('click', function() {
   show(homeButton)
   hide(searchResults)
   hide(favSection)
-  toggleHidden(menuButton, menuSection)
+  toggleHidden(menuButton)
+  toggleHidden(menuSection)
   renderRecipesNoButtons(menuSection, user.recipesToCook)
 })
 
 window.addEventListener('load', function() {
-  greetUser();
-  setUpRepo();
+  setUpUser();
+  setUpIngredients();
 })
-
-// favButton.addEventListener('click', addToFavRecipes)
-
-// menuButton.addEventListener('click', addToWeekMenu)
 
 
 //EVENT HANDLERS
 
-const setUpRepo = () => {
+const setUpIngredients = () => {
+  let ingredients;
+  fetchApiData('ingredients')
+    .then(data => {
+      ingredients = data.ingredientsData;
+    })
+    .then(() => setUpRepo(ingredients))
+}
+
+const setUpUser = () => {
+  fetchApiData('users')
+    .then(data => {
+      user = new User(data.usersData[Math.floor(Math.random() * data.usersData.length)]);
+    })
+    .then(() => greetUser())
+}
+
+const setUpRepo = (ingredientData) => {
   fetchApiData('recipes')
     .then(data => {
-      recipeRepo = new RecipeRepository(data.recipeData, ingredientsData);
+      recipeRepo = new RecipeRepository(data.recipeData, ingredientData);
     })
     .then(() => renderRecipes(searchResults, recipeRepo.recipes))
+};
+
+const greetUser = () => {
+  welcomeMsg.innerHTML = `Welcome ${user.name}!`
 };
 
 const removeDuplicates = (duplicateList) => {
@@ -146,9 +159,8 @@ const renderRecipesNoButtons = (container, dataSet) => {
   })
 }
 
-const toggleHidden = (element1, element2) => {
-  element1.classList.toggle('hidden')
-  element2.classList.toggle('hidden')
+const toggleHidden = (element) => {
+  element.classList.toggle('hidden')
 }
 
 const hide = (element) => {
