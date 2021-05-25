@@ -10,18 +10,17 @@ class RecipeRepository {
   }
 
   filterTags(searchText) {
-    return this.recipes.filter((recipe) => {
-      recipe.tags.forEach(tag => tag.toLowerCase())
-      return recipe.tags.includes(searchText)
-    })
+    const formattedSearch = searchText.toLowerCase().split(' ');
+    const searchedTags = this.recipes.filter(recipe => recipe.tags.some(tag => formattedSearch.includes(tag)))
+    return searchedTags;
   }
 
   filterName(searchText) {
-    return this.recipes.filter((recipe) => recipe.name.toLowerCase().includes(searchText))
+    return this.recipes.filter((recipe) => recipe.name.toLowerCase().includes(searchText.toLowerCase()))
   }
 
   filterIngredients(searchText) {
-    let ingMatch = this.ingredients.find(ingredient => ingredient.name.toLowerCase().includes(searchText));
+    let ingMatch = this.ingredients.find(ingredient => ingredient.name.toLowerCase().includes(searchText.toLowerCase()));
     return this.recipes.filter(recipe => {
       return recipe.ingredients.reduce((acc, ingredient) => {
         if (ingMatch.id === ingredient.id) {
