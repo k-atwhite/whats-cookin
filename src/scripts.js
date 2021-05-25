@@ -215,11 +215,6 @@ const removeRecipe = (e) => {
 
 
 
-// ITERATION 2
-
-// Favorite / unfavorite recipes that I like and can easily find again
-
-
 // Filter my favorited recipes by one or more tags
 
 

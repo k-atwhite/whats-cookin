@@ -31,13 +31,13 @@ class User {
   removeFromWeeklyMenu(recipe) {
     if (this.recipesToCook.includes(recipe)) {
       const deleteIndex = this.recipesToCook.indexOf(recipe);
-
       this.recipesToCook.splice(deleteIndex, 1);
     }
   }
 
   filterFavoriteRecipeByTag(searchText) {
-    const searchedTags = this.favoriteRecipes.filter(recipe => recipe.tags.includes(searchText.toLowerCase()))
+    const formattedSearch = searchText.toLowerCase().split(' ');
+    const searchedTags = this.favoriteRecipes.filter(recipe => recipe.tags.some(tag => formattedSearch.includes(tag)))
     return searchedTags;
   }
 

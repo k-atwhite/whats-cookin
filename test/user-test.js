@@ -203,40 +203,40 @@ describe('User', () => {
   it('Should be able to filter favorite recipes by tag', () => {
     user.addFavoriteRecipe(recipe1)
     user.addFavoriteRecipe(recipe2)
-    const filteredFavRecipes = user.filterFavoriteRecipeByTag('bread')
-    const filteredFavRecipes1 = user.filterFavoriteRecipeByTag('bReAd')
-    const filteredFavRecipes2 = user.filterFavoriteRecipeByTag('BREAD')
+    const filteredFavRecipes = user.filterFavoriteRecipeByTag('dinner crab')
+    const filteredFavRecipes1 = user.filterFavoriteRecipeByTag('Crab')
+    const filteredFavRecipes2 = user.filterFavoriteRecipeByTag('HORS')
     expect(filteredFavRecipes, filteredFavRecipes1, filteredFavRecipes2).to.deep.equal([
-     {
-       'id': 595736,
-       'image': 'potato.org',
-       'ingredients': [
-         {
-           "estimatedCostInCents": 142,
-           "id": 20081,
-           "name": 'wheat flour',
-           "quantity": {
-             "amount": 2,
-             "unit": "c"
-           }
-         },
-         {
-           "estimatedCostInCents": 582,
-           "id": 18372,
-           "name": "bicarbonate of soda",
-           "quantity": {
-             "amount": 1,
-             "unit": "tsp"
-           }
-         }
-       ],
-       'instructions': [
-         {"instruction": "Preheat oven to 170 – 200°F", "number": 1},
-         {"instruction": "Mix with warm water", "number": 2}
-       ],
-       'name': 'Whole Grain Bread',
-       'tags': ['bread']
-     }
+      {
+         'id': 98765,
+         'image': 'crablover.org',
+         'ingredients': [
+           {
+             "estimatedCostInCents": 213,
+               "id": 12345,
+              "name": "fake crab",
+               "quantity": {
+                 "amount": 1,
+                 "unit": "c",
+             }
+           },
+           {
+             "estimatedCostInCents": 300,
+               "id": 54321,
+              "name": "ritz crackers",
+               "quantity": {
+                 "amount": 4,
+                 "unit": "crackers",
+             }
+           },
+         ],
+         'instructions': [
+           {"instruction": "Open package", "number": 1},
+           {"instruction": "combine", "number": 2}
+         ],
+         'name': 'Crabs on Crackers',
+         'tags': ["Hors d\'oeuvre", "dinner", "crab"]
+       }
    ]);
  });
 
