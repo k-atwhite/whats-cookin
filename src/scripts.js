@@ -21,6 +21,7 @@ const homeButton = document.getElementById('homeButton')
 const favSection = document.getElementById('favSection')
 const menuButton = document.getElementById('menuButton')
 const menuSection = document.getElementById('menuSection')
+const favBar = document.getElementById('favBar')
 
 
 // EVENT LISTENERS
@@ -47,6 +48,10 @@ favSection.addEventListener('click', function (e) {
   renderModal(e)
 })
 
+favBar.addEventListener('keyup', function (e) {
+  renderRecipesNoButtons(favSection, filterFavText(e))
+})
+
 closeModal.addEventListener('click', function() {
   toggleHidden(recipeModal)
 })
@@ -56,6 +61,8 @@ favButton.addEventListener('click', function() {
   show(menuButton)
   hide(searchResults)
   hide(menuSection)
+  hide(searchBar)
+  show(favBar)
   toggleHidden(favButton)
   toggleHidden(favSection)
   renderRecipesNoButtons(favSection, user.favoriteRecipes)
@@ -139,6 +146,16 @@ const filterText = (e) => {
     return filteredRecipes
 }
 
+const filterFavText = (e) => {
+    let searchText = e.target.value.toLowerCase();
+    let names = user.filterFavoriteRecipeByName(searchText);
+    let ingredients = user.filterFavoriteRecipeByIngredients(searchText);
+    let tags = user.filterFavoriteRecipeByTag(searchText);
+    let flattenedRecipes = [names, ingredients, tags].flat()
+    let filteredRecipes = removeDuplicates(flattenedRecipes)
+    return filteredRecipes
+}
+
 const renderRecipes = (container, dataSet) => {
     container.innerHTML = ""
     dataSet.forEach(recipe => {container.innerHTML +=
@@ -211,11 +228,6 @@ const removeRecipe = (e) => {
     user.removeFavoriteRecipe(matchedRecipe)
     renderRecipesNoButtons(favSection, user.favoriteRecipes)
 }
-
-
-
-
-// Filter my favorited recipes by one or more tags
 
 
 // Search my favorited recipes by its name or ingredients
