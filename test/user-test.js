@@ -3,6 +3,7 @@ import User from '../src/classes/User';
 import Recipe from '../src/classes/Recipe';
 import { userTestData } from '../src/data/test-user-data';
 import { recipeTestData } from '../src/data/test-recipe-data';
+import { ingredientTestData } from '../src/data/test-ingredient-data';
 
 describe('User', () => {
   let user;
@@ -13,6 +14,8 @@ describe('User', () => {
     user = new User(userTestData[0]);
     recipe1 = new Recipe(recipeTestData[0]);
     recipe2 = new Recipe(recipeTestData[1]);
+    recipe1.compileIngredients(ingredientTestData);
+    recipe2.compileIngredients(ingredientTestData);
   });
 
   it('Should be a function', () => {
