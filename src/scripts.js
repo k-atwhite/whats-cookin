@@ -106,6 +106,10 @@ const setUpIngredients = () => {
     .then(() => setUpRepo(ingredients))
 }
 
+const randomize = () => {
+  ([Math.floor(Math.random() * data.usersData.length)]);
+}
+
 const setUpUser = () => {
   fetchApiData('users')
     .then(data => {

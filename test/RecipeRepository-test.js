@@ -19,89 +19,89 @@ describe('Recipe Repository', () => {
   });
 
   it('Should be an instance of RecipeRepository', () => {
-      expect(recipeRepository).to.be.an.instanceOf(RecipeRepository);
+    expect(recipeRepository).to.be.an.instanceOf(RecipeRepository);
   });
 
   it('Should take recipeData as an argument', () => {
-      expect(recipeRepository.recipes).to.deep.equal([{
-    'id': 595736,
-    'image': 'potato.org',
-    'ingredients': [{
-    "id": 20081,
-    'estimatedCostInCents': 142,
-    'name': 'wheat flour',
-    "quantity": {
-        "amount": 2,
-        "unit": "c"
-    }}, {
+    expect(recipeRepository.recipes).to.deep.equal([{
+      'id': 595736,
+      'image': 'potato.org',
+      'ingredients': [{
+        "id": 20081,
+        'estimatedCostInCents': 142,
+        'name': 'wheat flour',
+        "quantity": {
+          "amount": 2,
+          "unit": "c"
+        }}, {
         "id": 18372,
         'estimatedCostInCents': 582,
         'name': 'bicarbonate of soda',
         "quantity": {
-        "amount": 1,
-        "unit": "tsp"
+          "amount": 1,
+          "unit": "tsp"
         }}],
-    'instructions': [{"instruction": "Preheat oven to 170 – 200°F", "number": 1},
+      'instructions': [{"instruction": "Preheat oven to 170 – 200°F", "number": 1},
         {"instruction": "Mix with warm water", "number": 2}],
-    'name': 'Whole Grain Bread',
-    'tags': ['bread']
-},{'id': 98765,
-    'image': 'crablover.org',
-    'ingredients': [{
-    "id": 12345,
-    'estimatedCostInCents': 213,
-    'name': 'fake crab',
-    "quantity": {
-        "amount": 1,
-        "unit": "c"
-    }}, {
+      'name': 'Whole Grain Bread',
+      'tags': ['bread']
+    }, {'id': 98765,
+      'image': 'crablover.org',
+      'ingredients': [{
+        "id": 12345,
+        'estimatedCostInCents': 213,
+        'name': 'fake crab',
+        "quantity": {
+          "amount": 1,
+          "unit": "c"
+        }}, {
         "id": 54321,
         'estimatedCostInCents': 300,
         'name': 'ritz crackers',
         "quantity": {
-        "amount": 4,
-        "unit": "crackers"
+          "amount": 4,
+          "unit": "crackers"
         }}],
-    'instructions': [{"instruction": "Open package", "number": 1},
+      'instructions': [{"instruction": "Open package", "number": 1},
         {"instruction": "combine", "number": 2}],
-    'name': 'Crabs on Crackers',
-    'tags': ["Hors d\'oeuvre", "dinner", "crab"]
-  }]);
-});
+      'name': 'Crabs on Crackers',
+      'tags': ["Hors d\'oeuvre", "dinner", "crab"]
+    }]);
+  });
 
-it('Should take ingredient data as an argument', () => {
-  expect(recipeRepository.ingredients).to.deep.equal([
-    {"id": 20081, "name": "wheat flour","estimatedCostInCents": 142, 'quantity': { 'amount': 2, 'unit': 'c'}},
-    {"id": 18372,"name": "bicarbonate of soda", "estimatedCostInCents": 582, 'quantity': { 'amount': 1, 'unit': 'tsp'}},
-    {"id": 12345,"name": "fake crab", "estimatedCostInCents": 213, 'quantity': { 'amount': 1, 'unit': 'c'}},
-    {"id": 54321,"name": "ritz crackers", "estimatedCostInCents": 300, 'quantity': { 'amount': 4, 'unit': 'crackers'}}
-  ]);
-})
+  it('Should take ingredient data as an argument', () => {
+    expect(recipeRepository.ingredients).to.deep.equal([
+      {"id": 20081, "name": "wheat flour", "estimatedCostInCents": 142, 'quantity': { 'amount': 2, 'unit': 'c'}},
+      {"id": 18372, "name": "bicarbonate of soda", "estimatedCostInCents": 582, 'quantity': { 'amount': 1, 'unit': 'tsp'}},
+      {"id": 12345, "name": "fake crab", "estimatedCostInCents": 213, 'quantity': { 'amount': 1, 'unit': 'c'}},
+      {"id": 54321, "name": "ritz crackers", "estimatedCostInCents": 300, 'quantity': { 'amount': 4, 'unit': 'crackers'}}
+    ]);
+  })
 
- it('Should filter recipes by tags', () => {
-   let result = recipeRepository.filterTags('Crab')
-   let result1 = recipeRepository.filterTags('dinner Hors')
+  it('Should filter recipes by tags', () => {
+    let result = recipeRepository.filterTags('Crab')
+    let result1 = recipeRepository.filterTags('dinner Hors')
     expect(result, result1).to.deep.equal([{'id': 98765,
-    'image': 'crablover.org',
-    'ingredients': [{
-    "id": 12345,
-    'estimatedCostInCents': 213,
-    'name': 'fake crab',
-    "quantity": {
-        "amount": 1,
-        "unit": "c"
-    }}, {
+      'image': 'crablover.org',
+      'ingredients': [{
+        "id": 12345,
+        'estimatedCostInCents': 213,
+        'name': 'fake crab',
+        "quantity": {
+          "amount": 1,
+          "unit": "c"
+        }}, {
         "id": 54321,
         'estimatedCostInCents': 300,
         'name': 'ritz crackers',
         "quantity": {
-        "amount": 4,
-        "unit": "crackers"
+          "amount": 4,
+          "unit": "crackers"
         }}],
-    'instructions': [{"instruction": "Open package", "number": 1},
+      'instructions': [{"instruction": "Open package", "number": 1},
         {"instruction": "combine", "number": 2}],
-    'name': 'Crabs on Crackers',
-    'tags': ["Hors d\'oeuvre", "dinner", "crab"]
+      'name': 'Crabs on Crackers',
+      'tags': ["Hors d\'oeuvre", "dinner", "crab"]
     }]);
   });
 
@@ -111,22 +111,22 @@ it('Should take ingredient data as an argument', () => {
       'id': 595736,
       'image': 'potato.org',
       'ingredients': [{
-      "id": 20081,
-      'estimatedCostInCents': 142,
-      'name': 'wheat flour',
-      "quantity": {
+        "id": 20081,
+        'estimatedCostInCents': 142,
+        'name': 'wheat flour',
+        "quantity": {
           "amount": 2,
           "unit": "c"
-      }}, {
-          "id": 18372,
-          'estimatedCostInCents': 582,
-          'name': 'bicarbonate of soda',
-          "quantity": {
+        }}, {
+        "id": 18372,
+        'estimatedCostInCents': 582,
+        'name': 'bicarbonate of soda',
+        "quantity": {
           "amount": 1,
           "unit": "tsp"
-          }}],
+        }}],
       'instructions': [{"instruction": "Preheat oven to 170 – 200°F", "number": 1},
-          {"instruction": "Mix with warm water", "number": 2}],
+        {"instruction": "Mix with warm water", "number": 2}],
       'name': 'Whole Grain Bread',
       'tags': ['bread']
     }]);
@@ -138,22 +138,22 @@ it('Should take ingredient data as an argument', () => {
       'id': 595736,
       'image': 'potato.org',
       'ingredients': [{
-      "id": 20081,
-      'estimatedCostInCents': 142,
-      'name': 'wheat flour',
-      "quantity": {
+        "id": 20081,
+        'estimatedCostInCents': 142,
+        'name': 'wheat flour',
+        "quantity": {
           "amount": 2,
           "unit": "c"
-      }}, {
-          "id": 18372,
-          'estimatedCostInCents': 582,
-          'name': 'bicarbonate of soda',
-          "quantity": {
+        }}, {
+        "id": 18372,
+        'estimatedCostInCents': 582,
+        'name': 'bicarbonate of soda',
+        "quantity": {
           "amount": 1,
           "unit": "tsp"
-          }}],
+        }}],
       'instructions': [{"instruction": "Preheat oven to 170 – 200°F", "number": 1},
-          {"instruction": "Mix with warm water", "number": 2}],
+        {"instruction": "Mix with warm water", "number": 2}],
       'name': 'Whole Grain Bread',
       'tags': ['bread']
     }]);

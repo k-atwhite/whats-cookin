@@ -13,8 +13,8 @@ describe('Recipe', () => {
 
   beforeEach('Instantiate recipe', () => {
 
-    ingredient1 = {"id": 20081, "name": "wheat flour","estimatedCostInCents": 142};
-    ingredient2 = {"id": 18372,"name": "bicarbonate of soda", "estimatedCostInCents": 582};
+    ingredient1 = {"id": 20081, "name": "wheat flour", "estimatedCostInCents": 142};
+    ingredient2 = {"id": 18372, "name": "bicarbonate of soda", "estimatedCostInCents": 582};
     ingredientData = [ingredient1, ingredient2]
 
     recipeData = {
@@ -26,15 +26,15 @@ describe('Recipe', () => {
           "amount": 2,
           "unit": "c"
         }}, {
-          "id": 18372,
-          "quantity": {
-            "amount": 1,
-            "unit": "tsp"
-          }}],
-        'instructions': [{"instruction": "Preheat oven to 170 – 200°F", "number": 1},
-          {"instruction": "Mix with warm water", "number": 2}],
-        'name': 'Whole Grain Bread',
-        'tags': ['bread']
+        "id": 18372,
+        "quantity": {
+          "amount": 1,
+          "unit": "tsp"
+        }}],
+      'instructions': [{"instruction": "Preheat oven to 170 – 200°F", "number": 1},
+        {"instruction": "Mix with warm water", "number": 2}],
+      'name': 'Whole Grain Bread',
+      'tags': ['bread']
     }
 
     recipe = new Recipe(recipeData);
@@ -65,11 +65,11 @@ describe('Recipe', () => {
         "amount": 2,
         "unit": "c"
       }}, {
-        "id": 18372,
-        "quantity": {
-          "amount": 1,
-          "unit": "tsp"
-        }}])
+      "id": 18372,
+      "quantity": {
+        "amount": 1,
+        "unit": "tsp"
+      }}])
     expect(recipe.ingredients).to.be.a('array')
   });
 
@@ -102,14 +102,14 @@ describe('Recipe', () => {
         "amount": 2,
         "unit": "c"
       }},
-      {
-        "estimatedCostInCents": 582,
-        "id": 18372,
-        "name": "bicarbonate of soda",
-        "quantity": {
-          "amount": 1,
-          "unit": "tsp"
-        }}
+    {
+      "estimatedCostInCents": 582,
+      "id": 18372,
+      "name": "bicarbonate of soda",
+      "quantity": {
+        "amount": 1,
+        "unit": "tsp"
+      }}
     ])
   });
 
