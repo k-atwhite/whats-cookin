@@ -232,9 +232,3 @@ const removeRecipe = (e) => {
     user.removeFavoriteRecipe(matchedRecipe)
     renderRecipesNoButtons(favSection, user.favoriteRecipes)
 }
-
-
-// Search my favorited recipes by its name or ingredients
-
-
-// Add a recipe to a list of recipes to cook

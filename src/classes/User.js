@@ -47,7 +47,6 @@ class User {
   }
 
   filterFavoriteRecipeByIngredients(searchText) {
-    // let ingMatch = this.ingredients.find(ingredient => ingredient.name.includes(searchText));
     return this.favoriteRecipes.filter(recipe => {
       return recipe.ingredients.reduce((acc, ingredient) => {
         if (ingredient.name === searchText.toLowerCase()) {
