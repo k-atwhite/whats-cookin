@@ -79,8 +79,9 @@ it('Should take ingredient data as an argument', () => {
 })
 
  it('Should filter recipes by tags', () => {
-   let result = recipeRepository.filterTags('crab')
-    expect(result).to.deep.equal([{'id': 98765,
+   let result = recipeRepository.filterTags('Crab')
+   let result1 = recipeRepository.filterTags('dinner Hors')
+    expect(result, result1).to.deep.equal([{'id': 98765,
     'image': 'crablover.org',
     'ingredients': [{
     "id": 12345,
