@@ -84,6 +84,8 @@ menuButton.addEventListener('click', function() {
   show(homeButton)
   hide(searchResults)
   hide(favSection)
+  hide(searchBar)
+  hide(favBar)
   toggleHidden(menuButton)
   toggleHidden(menuSection)
   renderRecipesNoButtons(menuSection, user.recipesToCook)
