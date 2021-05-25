@@ -59,10 +59,10 @@ closeModal.addEventListener('click', function() {
 favButton.addEventListener('click', function() {
   show(homeButton)
   show(menuButton)
+  show(favBar)
   hide(searchResults)
   hide(menuSection)
   hide(searchBar)
-  show(favBar)
   toggleHidden(favButton)
   toggleHidden(favSection)
   renderRecipesNoButtons(favSection, user.favoriteRecipes)
@@ -73,8 +73,10 @@ homeButton.addEventListener('click', function() {
   toggleHidden(searchResults)
   hide(favSection)
   hide(menuSection)
+  hide(favBar)
   show(favButton)
   show(menuButton)
+  show(searchBar)
 })
 
 menuButton.addEventListener('click', function() {
