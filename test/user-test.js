@@ -46,14 +46,18 @@ describe('User', () => {
         'image': 'potato.org',
         'ingredients': [
           {
+            "estimatedCostInCents": 142,
             "id": 20081,
+            "name": 'wheat flour',
             "quantity": {
               "amount": 2,
               "unit": "c"
             }
           },
           {
+            "estimatedCostInCents": 582,
             "id": 18372,
+            "name": "bicarbonate of soda",
             "quantity": {
               "amount": 1,
               "unit": "tsp"
@@ -79,14 +83,18 @@ describe('User', () => {
         'image': 'potato.org',
         'ingredients': [
           {
+            "estimatedCostInCents": 142,
             "id": 20081,
+            "name": 'wheat flour',
             "quantity": {
               "amount": 2,
               "unit": "c"
             }
           },
           {
+            "estimatedCostInCents": 582,
             "id": 18372,
+            "name": "bicarbonate of soda",
             "quantity": {
               "amount": 1,
               "unit": "tsp"
@@ -121,14 +129,18 @@ describe('User', () => {
         'image': 'potato.org',
         'ingredients': [
           {
+            "estimatedCostInCents": 142,
             "id": 20081,
+            "name": 'wheat flour',
             "quantity": {
               "amount": 2,
               "unit": "c"
             }
           },
           {
+            "estimatedCostInCents": 582,
             "id": 18372,
+            "name": "bicarbonate of soda",
             "quantity": {
               "amount": 1,
               "unit": "tsp"
@@ -154,14 +166,18 @@ describe('User', () => {
         'image': 'potato.org',
         'ingredients': [
           {
+            "estimatedCostInCents": 142,
             "id": 20081,
+            "name": 'wheat flour',
             "quantity": {
               "amount": 2,
               "unit": "c"
             }
           },
           {
+            "estimatedCostInCents": 582,
             "id": 18372,
+            "name": "bicarbonate of soda",
             "quantity": {
               "amount": 1,
               "unit": "tsp"
@@ -196,14 +212,18 @@ describe('User', () => {
        'image': 'potato.org',
        'ingredients': [
          {
+           "estimatedCostInCents": 142,
            "id": 20081,
+           "name": 'wheat flour',
            "quantity": {
              "amount": 2,
              "unit": "c"
            }
          },
          {
+           "estimatedCostInCents": 582,
            "id": 18372,
+           "name": "bicarbonate of soda",
            "quantity": {
              "amount": 1,
              "unit": "tsp"
@@ -232,14 +252,18 @@ describe('User', () => {
         'image': 'potato.org',
         'ingredients': [
           {
+            "estimatedCostInCents": 142,
             "id": 20081,
+            "name": 'wheat flour',
             "quantity": {
               "amount": 2,
               "unit": "c"
             }
           },
           {
+            "estimatedCostInCents": 582,
             "id": 18372,
+            "name": "bicarbonate of soda",
             "quantity": {
               "amount": 1,
               "unit": "tsp"
@@ -266,14 +290,18 @@ describe('User', () => {
        'image': 'potato.org',
        'ingredients': [
          {
+           "estimatedCostInCents": 142,
            "id": 20081,
+           "name": 'wheat flour',
            "quantity": {
              "amount": 2,
              "unit": "c"
            }
          },
          {
+           "estimatedCostInCents": 582,
            "id": 18372,
+           "name": "bicarbonate of soda",
            "quantity": {
              "amount": 1,
              "unit": "tsp"
@@ -289,8 +317,4 @@ describe('User', () => {
      }
    ]);
  });
-  // it('Should be able to filter favorite recipes by name, ingredients, tag', () => {
-  //   expect().to.();
-  // });
-
 });
