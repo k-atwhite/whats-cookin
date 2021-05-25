@@ -1,10 +1,12 @@
-# What's Cookin'!
+<h1 align="center"> 🥢🍽 What's Cookin'!🍽 🥢</h1>
+
 
 1. [Project Overview](https://github.com/k-atwhite/whats-cookin/blob/main/README.md#project-overview)
 2. [Contributors](https://github.com/k-atwhite/whats-cookin/blob/main/README.md#contributors)
 3. [How to use the app](https://github.com/k-atwhite/whats-cookin/blob/main/README.md#how-to-use-the-app)
 4. [Technologies Used](https://github.com/k-atwhite/whats-cookin/blob/main/README.md#technologies-used)
 5. [Future Additions](https://github.com/k-atwhite/whats-cookin/blob/main/README.md#future-additions)
+
 
 ## Project Overview
 What's cooking is our biggest project yet!
