@@ -17,11 +17,11 @@ class RecipeRepository {
   }
 
   filterName(searchText) {
-    return this.recipes.filter((recipe) => recipe.name.toLowerCase().includes(searchText))
+    return this.recipes.filter((recipe) => recipe.name.toLowerCase().includes(searchText.toLowerCase()))
   }
 
   filterIngredients(searchText) {
-    let ingMatch = this.ingredients.find(ingredient => ingredient.name.toLowerCase().includes(searchText));
+    let ingMatch = this.ingredients.find(ingredient => ingredient.name.toLowerCase().includes(searchText.toLowerCase()));
     return this.recipes.filter(recipe => {
       return recipe.ingredients.reduce((acc, ingredient) => {
         if (ingMatch.id === ingredient.id) {

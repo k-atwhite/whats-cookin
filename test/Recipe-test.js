@@ -125,6 +125,6 @@ describe('Recipe', () => {
 
   it('Should return the total cost of ingredients', () => {
     recipe.compileIngredients(ingredientData);
-    expect(recipe.getCost()).to.equal(866)
+    expect(recipe.getCost()).to.equal('8.66')
   });
 });
