@@ -28,9 +28,7 @@ Project Goals:
 
 
 ## Contributors
-[Kat White!](https://github.com/k-atwhite)
-[Lauren Kessell!](https://github.com/LKessell)
-[Erica Spitz!](https://github.com/e-spitz)
+[Kat White!](https://github.com/k-atwhite) + [Lauren Kessell!](https://github.com/LKessell) + [Erica Spitz!](https://github.com/e-spitz)
 
 
 ## How to use the app
