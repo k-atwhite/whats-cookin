@@ -38,6 +38,11 @@ menuSection.addEventListener('click', function(e) {
   renderModal(e)
 })
 
+favSection.addEventListener('contextmenu', function (e) {
+  e.preventDefault()
+  removeRecipe(e)
+})
+
 favSection.addEventListener('click', function (e) {
   renderModal(e)
 })
@@ -199,6 +204,15 @@ const addtoWeeklyMenu = (e) => {
     user.addToWeeklyMenu(matchedRecipe)
   }
 }
+
+const removeRecipe = (e) => {
+  let eventID = parseInt(e.target.closest('section').id)
+    let matchedRecipe = recipeRepo.recipes.find(recipe => eventID === recipe.id)
+    user.removeFavoriteRecipe(matchedRecipe)
+    renderRecipesNoButtons(favSection, user.favoriteRecipes)
+}
+
+
 
 
 // ITERATION 2
