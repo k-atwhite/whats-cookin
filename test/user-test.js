@@ -235,7 +235,7 @@ describe('User', () => {
           {"instruction": "combine", "number": 2}
         ],
         'name': 'Crabs on Crackers',
-        'tags': ["Hors d\'oeuvre", "dinner", "crab"]
+        'tags': ["Hors d'oeuvre", "dinner", "crab"]
       }
     ]);
   });

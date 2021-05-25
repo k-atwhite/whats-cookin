@@ -1,10 +1,7 @@
 import { expect } from 'chai';
 import RecipeRepository from '../src/classes/RecipeRepository';
-import Recipe from '../src/classes/Recipe';
-import Ingredient from '../src/classes/Ingredient';
 import { recipeTestData } from '../src/data/test-recipe-data.js';
 import { ingredientTestData } from '../src/data/test-ingredient-data';
-import { ingredientsData } from "../src/data/ingredients";
 
 
 describe('Recipe Repository', () => {
@@ -65,7 +62,7 @@ describe('Recipe Repository', () => {
       'instructions': [{"instruction": "Open package", "number": 1},
         {"instruction": "combine", "number": 2}],
       'name': 'Crabs on Crackers',
-      'tags': ["Hors d\'oeuvre", "dinner", "crab"]
+      'tags': ["Hors d'oeuvre", "dinner", "crab"]
     }]);
   });
 
@@ -101,7 +98,7 @@ describe('Recipe Repository', () => {
       'instructions': [{"instruction": "Open package", "number": 1},
         {"instruction": "combine", "number": 2}],
       'name': 'Crabs on Crackers',
-      'tags': ["Hors d\'oeuvre", "dinner", "crab"]
+      'tags': ["Hors d'oeuvre", "dinner", "crab"]
     }]);
   });
 
