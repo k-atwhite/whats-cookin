@@ -123,7 +123,7 @@ const setUpRepo = (ingredientData) => {
 };
 
 const greetUser = () => {
-  welcomeMsg.innerHTML = `Welcome ${user.name}!`
+  welcomeMsg.innerHTML = `Welcome, ${user.name}!`
 };
 
 const removeDuplicates = (duplicateList) => {
@@ -162,7 +162,7 @@ const renderRecipes = (container, dataSet) => {
   container.innerHTML = ""
   dataSet.forEach(recipe => {
     container.innerHTML += `
-      <section class="recipe-card test" id=${recipe.id}>
+      <section class="recipe-card" id=${recipe.id}>
         ${recipe.name}
         <img src=${recipe.image} class="recipe-img">
         <button class="add-favorites" id='addFav'>fav me!</button>
@@ -200,10 +200,13 @@ const renderModal = (e) => {
   let eventID = parseInt(e.target.closest('section').id)
   if (e.target.closest('section').classList.contains('recipe-card')) {
     let matchedRecipe = recipeRepo.recipes.find(recipe => eventID === recipe.id)
-    modalInfo.innerHTML = `<p>${matchedRecipe.name}</p>
+    modalInfo.innerHTML = `<p class="modal-headers">${matchedRecipe.name}</p>
     <p><img src=${matchedRecipe.image}></p>
+    <p class="modal-headers">Ingredients:</p>
     <p>${matchedRecipe.getIngredientNames()}</p>
+    <p class="modal-headers">Instructions:</p>
     <p>${matchedRecipe.getInstructions()}</p>
+    <p class="modal-headers">Cost:</p>
     <p>$${matchedRecipe.getCost()}</p>`
     toggleHidden(recipeModal)
   }
