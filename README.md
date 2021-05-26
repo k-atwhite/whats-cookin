@@ -36,6 +36,21 @@ Our user should have a wide range of functionality (covered in detail below) - s
 
 
 ## How to use the app
+### Server Setup
+To set up the data server, run the following commands:  
+`git clone git@github.com:turingschool/What-s-cookin--starter-kit-API.git`  
+`cd What-s-cookin--starter-kit-API`  
+`npm install`  
+`npm start`  
+Then, open a new Terminal window
+
+### App Setup
+In the new Terminal window, run the following commands:  
+`git clone git@github.com:k-atwhite/whats-cookin.git`  
+`cd whats-cookin`  
+`npm install`  
+`npm start`  
+Open a window in your web browser of choice, and visit `localhost:8080` to view the app!
 
 
 ## Technologies Used
