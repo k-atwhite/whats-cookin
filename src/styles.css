@@ -35,29 +35,74 @@ h1 {
 
 input {
   width: 80%;
+  height: 4vh;
+  margin-top: 2%;
+  padding: 1%;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid;
+}
+
+button {
+  border: 1px solid;
+  margin: 8px 5px;
+  padding: 3px 10px;
+  border-radius: 3px;
+  background: white;
+  font-family: 'Bitter', serif;
+  font-weight: bolder;
+  transition: background 400ms;
+}
+
+button:hover {
+  cursor: pointer;
+  background: peachpuff;
+}
+
+.navigation-button {
+  padding: 10px 20px;
+  font-size: 18px;
+}
+
+.recipe-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2%;
+  background-color: lightblue;
+  width: 250px;
+  height: 260px;
+  font-weight: bolder;
+  text-align: center;
+  padding: 20px 12px 0 12px;
+  border-radius: 3px;
+  box-shadow: 10px 10px  10px peachpuff;
+}
+
+.recipe-card:hover {
+  cursor: pointer;
+}
+
+.add-favorites {
+  border-radius: 3px;
+  margin: 1.5%;
 }
 
 .container {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
-  padding: 6%;
+  padding: 2%;
   width: 100%;
 }
 
 .recipe-img {
   height: 20vh;
   width: 12vw;
-}
-
-.test {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin: 2%;
-  background-color: lightblue;
-  width: 250px;
-  height: 260px;
+  margin-bottom: 3%;
+  margin-top: 3%;
+  border-radius: 3px;
+  border: 1px solid grey;
 }
 
 .recipe-modal {
@@ -70,6 +115,7 @@ input {
   height: 100%;
   overflow: auto;
   background-color: rgba(0,0,0,0.4);
+  text-align: center;
 }
 
 .modal-content {
@@ -77,7 +123,15 @@ input {
   background-color: floralwhite;
   padding: 1% 2%;
   border: 1px solid lightblue;
+  height: 80%;
   width: 80%;
+  overflow: auto;
+  font-weight: 600;
+}
+
+.modal-headers {
+  font-size: 20px;
+  font-weight: 900;
 }
 
 .close-modal {
@@ -85,6 +139,12 @@ input {
   float: right;
   font-size: 3em;
   font-weight: bold;
+  transition: transform 400ms;
+}
+
+.close-modal:hover {
+  cursor: pointer;
+  transform: scale(1.5, 1.5);
 }
 
 .hidden {
