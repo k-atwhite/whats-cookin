@@ -35,6 +35,22 @@ h1 {
 
 input {
   width: 80%;
+  height: 4vh;
+}
+
+.recipe-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.add-favorites {
+  border-radius: 3px;
+  margin: 1.5%;
+}
+
+.add-week-menu {
+  
 }
 
 .container {
@@ -58,6 +74,7 @@ input {
   background-color: lightblue;
   width: 250px;
   height: 260px;
+  font-weight: bolder;
 }
 
 .recipe-modal {
