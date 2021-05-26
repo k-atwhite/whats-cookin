@@ -1,6 +1,6 @@
 <h1 align="center">🍽  What is Cookin?! 🍽</h1>
-![WhatsCookin](https://user-images.githubusercontent.com/77205456/119591782-3fa58e00-bda5-11eb-9793-01fe204b7e33.gif)
 
+<p align="center"><img src="https://user-images.githubusercontent.com/77205456/119591782-3fa58e00-bda5-11eb-9793-01fe204b7e33.gif"></p>
 
 1. [Project Overview](https://github.com/k-atwhite/whats-cookin/blob/main/README.md#project-overview)
 2. [Contributors](https://github.com/k-atwhite/whats-cookin/blob/main/README.md#contributors)
